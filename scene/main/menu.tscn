@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cw1tqknepharf" path="res://assets/planet/spring.png" id="5_pjtmh"]
 [ext_resource type="Texture2D" uid="uid://d168mgpkdv2e1" path="res://assets/planet/hell0.png" id="6_275k1"]
 [ext_resource type="Texture2D" uid="uid://rpmx6setmwut" path="res://assets/planet/autumn.png" id="6_t7mxe"]
-[ext_resource type="Texture2D" uid="uid://bjpchcnsfvqal" path="res://assets/planet/back_hole.png" id="7_03bhx"]
+[ext_resource type="Texture2D" uid="uid://bjpchcnsfvqal" path="res://assets/planet/black_hole.png" id="7_03bhx"]
 [ext_resource type="Texture2D" uid="uid://bclt5ey67q1" path="res://assets/planet/winter.png" id="7_74srn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yonf3"]

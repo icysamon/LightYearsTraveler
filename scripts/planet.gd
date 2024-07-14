@@ -4,7 +4,7 @@ const TWEEN_SCALE_TIME = 0.1
 
 @onready var SPRITE2D = $Sprite2D
 @export var TEXTURE : Texture
-@export var SPEED_ROTATION : float = 0.5
+@export var speed_rotation : float = 0.5
 
 var default_scale : Vector2 = Vector2.ONE
 var tween_size_add : Vector2 = Vector2.ONE * 0.2
@@ -15,7 +15,7 @@ func _ready():
 
 	
 func _physics_process(delta):
-	rotation += SPEED_ROTATION * delta
+	rotation += speed_rotation * delta
 
 
 func _on_mouse_entered():
