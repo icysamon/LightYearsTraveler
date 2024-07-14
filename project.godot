@@ -13,6 +13,7 @@ config_version=5
 config/name="Lifespan"
 run/main_scene="res://scene/main/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/image="res://assets/godot_wild_jam/background.png"
 config/icon="res://icon.svg"
 
 [rendering]

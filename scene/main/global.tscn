@@ -6,6 +6,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="UI" parent="." instance=ExtResource("1_g05ck")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Planet" parent="." instance=ExtResource("2_yc56x")]
 position = Vector2(618, 507)
