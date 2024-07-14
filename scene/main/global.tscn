@@ -1,13 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://btjqepmvg6mm8"]
+[gd_scene load_steps=5 format=3 uid="uid://btjqepmvg6mm8"]
 
+[ext_resource type="SpriteFrames" uid="uid://cgaikhtrt8ff7" path="res://resource/background.tres" id="1_akduu"]
 [ext_resource type="PackedScene" uid="uid://b405njjdeo60g" path="res://scene/main/ui.tscn" id="1_g05ck"]
 [ext_resource type="PackedScene" uid="uid://b5lv76xyyp2au" path="res://scene/child/planet.tscn" id="2_yc56x"]
+[ext_resource type="PackedScene" uid="uid://cxpv1vg6rsf8v" path="res://scene/child/player.tscn" id="3_w17ff"]
 
 [node name="Node2D" type="Node2D"]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(575.843, 324)
+scale = Vector2(7.17304, 7.2)
+sprite_frames = ExtResource("1_akduu")
+autoplay = "default"
+frame_progress = 0.818975
 
 [node name="UI" parent="." instance=ExtResource("1_g05ck")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="Player" parent="." instance=ExtResource("3_w17ff")]
+position = Vector2(554, 288)
 
 [node name="Planet" parent="." instance=ExtResource("2_yc56x")]
-position = Vector2(618, 507)
+position = Vector2(810, 546)
