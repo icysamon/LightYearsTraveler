@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5lv76xyyp2au"]
+
+[ext_resource type="Texture2D" uid="uid://cw1tqknepharf" path="res://assets/planet/spring.png" id="1_f3xtl"]
+[ext_resource type="Script" path="res://scripts/planet.gd" id="1_qtws5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_koih3"]
+size = Vector2(9.76306, 13.3838)
+
+[node name="Planet" type="Node2D"]
+script = ExtResource("1_qtws5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_f3xtl")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/RigidBody2D"]
+position = Vector2(0, -1.90735e-07)
+scale = Vector2(0.819415, 0.597736)
+shape = SubResource("RectangleShape2D_koih3")
