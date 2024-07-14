@@ -10,6 +10,7 @@ size = Vector2(9.76306, 13.3838)
 size = Vector2(8, 8)
 
 [node name="Planet" type="Node2D"]
+z_index = -10
 texture_filter = 1
 script = ExtResource("1_qtws5")
 
@@ -32,5 +33,11 @@ position = Vector2(1.90735e-07, 2.86102e-07)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_y4js5")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Sprite2D/Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite2D/Area2D" to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://btjqepmvg6mm8"]
+[gd_scene load_steps=4 format=3 uid="uid://btjqepmvg6mm8"]
 
-[ext_resource type="SpriteFrames" uid="uid://cgaikhtrt8ff7" path="res://resource/background.tres" id="1_akduu"]
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_njcqn"]
 [ext_resource type="PackedScene" uid="uid://b5lv76xyyp2au" path="res://scene/child/planet.tscn" id="2_yc56x"]
 [ext_resource type="PackedScene" uid="uid://cxpv1vg6rsf8v" path="res://scene/child/player.tscn" id="3_w17ff"]
@@ -9,15 +8,8 @@
 texture_filter = 1
 script = ExtResource("1_njcqn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(575.843, 324)
-scale = Vector2(7.17304, 7.2)
-sprite_frames = ExtResource("1_akduu")
-autoplay = "default"
-frame_progress = 0.763686
-
 [node name="Player" parent="." instance=ExtResource("3_w17ff")]
-position = Vector2(554, 288)
+position = Vector2(574, 325)
 
 [node name="Planet" parent="." instance=ExtResource("2_yc56x")]
-position = Vector2(810, 546)
+position = Vector2(567, 437)

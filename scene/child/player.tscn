@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dc8370ps1bh1" path="res://assets/player/player.png" id="1_e5cpc"]
 [ext_resource type="PackedScene" uid="uid://b405njjdeo60g" path="res://scene/main/ui.tscn" id="3_8hhjv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eymmx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1yhp"]
 size = Vector2(10, 9)
 
 [node name="Player" type="Node2D"]
@@ -12,16 +12,30 @@ texture_filter = 1
 scale = Vector2(3, 3)
 script = ExtResource("1_1c44o")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" parent="Camera2D" instance=ExtResource("3_8hhjv")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -192.0
+offset_top = -107.0
+offset_right = -192.0
+offset_bottom = -107.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_e5cpc")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_eymmx")
+shape = SubResource("RectangleShape2D_m1yhp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-
-[node name="UI" parent="Camera2D" instance=ExtResource("3_8hhjv")]
+[connection signal="area_entered" from="Area2D" to="Camera2D/UI" method="_on_area_2d_area_entered"]

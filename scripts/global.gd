@@ -15,7 +15,7 @@ const PLANET_BLACK_HOLE = preload("res://assets/planet/black_hole.png")
 
 const PLANET_QUANTITY = 100
 const DISTANCE_MAX : int = 10000
-const R_INCREMENT : int = 100
+const R_INCREMENT : int = 200
 
 var creation_radius : int = 0 
 var target : Vector2 = Vector2.ZERO

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b405njjdeo60g"]
+[gd_scene load_steps=4 format=3 uid="uid://b405njjdeo60g"]
 
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_1jrra"]
 [ext_resource type="Texture2D" uid="uid://cajg1tcsbpvf2" path="res://assets/icon_season/frame.png" id="1_5q6eo"]
 [ext_resource type="Script" path="res://scripts/buttons/back_to_menu.gd" id="2_yhi28"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1jrra")
 
 [node name="SeasonSystem" type="Control" parent="."]
 layout_mode = 2
@@ -99,4 +101,9 @@ layout_mode = 2
 text = "Back To Menu"
 script = ExtResource("2_yhi28")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="button_down" from="MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" to="MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" method="_on_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
