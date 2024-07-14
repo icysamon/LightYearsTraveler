@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://66n7t0kwdk12"]
+[gd_scene load_steps=5 format=3 uid="uid://66n7t0kwdk12"]
+
+[ext_resource type="Theme" uid="uid://cc438u041qhka" path="res://resource/theme.tres" id="1_eyu4o"]
+[ext_resource type="Script" path="res://scripts/buttons/quit.gd" id="2_d0l4t"]
+[ext_resource type="Script" path="res://scripts/buttons/start.gd" id="2_k88ey"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yonf3"]
+font_size = 36
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -26,30 +33,55 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Title" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Title"]
 layout_mode = 2
 text = "Lifespan"
+label_settings = SubResource("LabelSettings_yonf3")
+horizontal_alignment = 1
 
-[node name="StartGame" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Start" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/StartGame"]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Start"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+theme = ExtResource("1_eyu4o")
+text = "Start"
+icon_alignment = 1
+language = "en_US"
+script = ExtResource("2_k88ey")
 
-[node name="Settings" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Options" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Settings"]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Options"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+theme = ExtResource("1_eyu4o")
+text = "Options"
+icon_alignment = 1
+language = "en_US"
 
-[node name="Exit" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Quit" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Exit"]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Quit"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+theme = ExtResource("1_eyu4o")
+text = "Quit"
+icon_alignment = 1
+language = "en_US"
+script = ExtResource("2_d0l4t")
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" method="_on_button_down"]
