@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://66n7t0kwdk12"]
+[gd_scene load_steps=12 format=3 uid="uid://66n7t0kwdk12"]
 
 [ext_resource type="Theme" uid="uid://cc438u041qhka" path="res://resource/theme.tres" id="1_eyu4o"]
 [ext_resource type="Script" path="res://scripts/buttons/quit.gd" id="2_d0l4t"]
 [ext_resource type="Script" path="res://scripts/buttons/start.gd" id="2_k88ey"]
+[ext_resource type="Texture2D" uid="uid://cjvk3ta5ckk6o" path="res://assets/planet/summer.png" id="3_6f6iw"]
+[ext_resource type="PackedScene" uid="uid://b5lv76xyyp2au" path="res://scene/child/planet.tscn" id="4_otphe"]
+[ext_resource type="Texture2D" uid="uid://cw1tqknepharf" path="res://assets/planet/spring.png" id="5_pjtmh"]
+[ext_resource type="Texture2D" uid="uid://d168mgpkdv2e1" path="res://assets/planet/hell0.png" id="6_275k1"]
+[ext_resource type="Texture2D" uid="uid://rpmx6setmwut" path="res://assets/planet/autumn.png" id="6_t7mxe"]
+[ext_resource type="Texture2D" uid="uid://bjpchcnsfvqal" path="res://assets/planet/back_hole.png" id="7_03bhx"]
+[ext_resource type="Texture2D" uid="uid://bclt5ey67q1" path="res://assets/planet/winter.png" id="7_74srn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yonf3"]
 font_size = 36
@@ -14,6 +21,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+
+[node name="Planets" type="Node2D" parent="."]
+
+[node name="Planet" parent="Planets" instance=ExtResource("4_otphe")]
+position = Vector2(665, 209)
+TEXTURE = ExtResource("5_pjtmh")
+SPEED_ROTATION = -0.1
+
+[node name="Planet2" parent="Planets" instance=ExtResource("4_otphe")]
+position = Vector2(904, 172)
+TEXTURE = ExtResource("3_6f6iw")
+
+[node name="Planet3" parent="Planets" instance=ExtResource("4_otphe")]
+position = Vector2(790, 334)
+TEXTURE = ExtResource("6_t7mxe")
+SPEED_ROTATION = 0.1
+
+[node name="Planet4" parent="Planets" instance=ExtResource("4_otphe")]
+position = Vector2(636, 455)
+TEXTURE = ExtResource("7_74srn")
+SPEED_ROTATION = -0.4
+
+[node name="Planet5" parent="Planets" instance=ExtResource("4_otphe")]
+position = Vector2(855, 500)
+TEXTURE = ExtResource("6_275k1")
+SPEED_ROTATION = -0.2
+
+[node name="Planet6" parent="Planets" instance=ExtResource("4_otphe")]
+position = Vector2(995, 362)
+TEXTURE = ExtResource("7_03bhx")
+SPEED_ROTATION = 0.3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

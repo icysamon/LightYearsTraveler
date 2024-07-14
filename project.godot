@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/image="res://assets/godot_wild_jam/background.png"
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
