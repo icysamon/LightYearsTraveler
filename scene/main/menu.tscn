@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://66n7t0kwdk12"]
+[gd_scene load_steps=17 format=3 uid="uid://66n7t0kwdk12"]
 
 [ext_resource type="Theme" uid="uid://cc438u041qhka" path="res://resource/theme.tres" id="1_eyu4o"]
+[ext_resource type="Texture2D" uid="uid://csekfupl2hif6" path="res://assets/background/background2.png" id="1_ne1yg"]
 [ext_resource type="Script" path="res://scripts/buttons/quit.gd" id="2_d0l4t"]
 [ext_resource type="Script" path="res://scripts/buttons/start.gd" id="2_k88ey"]
 [ext_resource type="Texture2D" uid="uid://cjvk3ta5ckk6o" path="res://assets/planet/summer.png" id="3_6f6iw"]
@@ -10,11 +11,38 @@
 [ext_resource type="Texture2D" uid="uid://rpmx6setmwut" path="res://assets/planet/autumn.png" id="6_t7mxe"]
 [ext_resource type="Texture2D" uid="uid://bjpchcnsfvqal" path="res://assets/planet/black_hole.png" id="7_03bhx"]
 [ext_resource type="Texture2D" uid="uid://bclt5ey67q1" path="res://assets/planet/winter.png" id="7_74srn"]
+[ext_resource type="Texture2D" uid="uid://6wqeuji1jev3" path="res://assets/background/background1.png" id="12_3xsv1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yonf3"]
 font_size = 36
 
+[sub_resource type="Animation" id="Animation_w5obg"]
+resource_name = "default"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("12_3xsv1"), ExtResource("1_ne1yg")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_14mgw"]
+_data = {
+"default": SubResource("Animation_w5obg")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_xys3u"]
+font_size = 24
+
 [node name="Menu" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,12 +51,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_3xsv1")
+
 [node name="Planets" type="Node2D" parent="."]
+z_index = 10
 
 [node name="Planet" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(665, 209)
 TEXTURE = ExtResource("5_pjtmh")
-SPEED_ROTATION = -0.1
 
 [node name="Planet2" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(904, 172)
@@ -37,22 +74,18 @@ TEXTURE = ExtResource("3_6f6iw")
 [node name="Planet3" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(790, 334)
 TEXTURE = ExtResource("6_t7mxe")
-SPEED_ROTATION = 0.1
 
 [node name="Planet4" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(636, 455)
 TEXTURE = ExtResource("7_74srn")
-SPEED_ROTATION = -0.4
 
 [node name="Planet5" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(855, 500)
 TEXTURE = ExtResource("6_275k1")
-SPEED_ROTATION = -0.2
 
 [node name="Planet6" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(995, 362)
 TEXTURE = ExtResource("7_03bhx")
-SPEED_ROTATION = 0.3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -77,7 +110,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Title"]
 layout_mode = 2
-text = "Lifespan"
+text = "Million Light Traveler"
 label_settings = SubResource("LabelSettings_yonf3")
 horizontal_alignment = 1
 
@@ -121,6 +154,31 @@ text = "Quit"
 icon_alignment = 1
 language = "en_US"
 script = ExtResource("2_d0l4t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_14mgw")
+}
+autoplay = "default"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -68.0
+offset_right = 225.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+text = "Game Design / Art / Programming / Music / SFX : icysamon"
+label_settings = SubResource("LabelSettings_xys3u")
+horizontal_alignment = 1
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" method="_on_button_down"]
