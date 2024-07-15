@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var PLANET = preload("res://scene/child/planet.tscn")
 @onready var player = $Player
+@onready var animation_click = $AnimationClick
+@onready var animation_player = $AnimationPlayer
 
 @export var speed = 100
 
@@ -52,9 +54,16 @@ func _process(delta):
 	if flag_move:
 		var target_normalized = (target - player.position).normalized()
 		player.position += target_normalized * speed * delta
+	
+	if !animation_player.is_playing():
+		animation_click.visible = false
+	else:
+		animation_click.visible = true
 	pass
 	
 func _input(event):
 	if event.is_action_pressed("move"):
 		flag_move = true
 		target = get_global_mouse_position()
+		animation_click.position = target
+		animation_player.play("click")

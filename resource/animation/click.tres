@@ -1,0 +1,25 @@
+[gd_resource type="Animation" load_steps=8 format=3 uid="uid://cwarwfb3po1eh"]
+
+[ext_resource type="Texture2D" uid="uid://d2fva8bch13el" path="res://assets/click/click1.png" id="1_fl4lh"]
+[ext_resource type="Texture2D" uid="uid://c20vip7ptaxb2" path="res://assets/click/click2.png" id="2_c1i4m"]
+[ext_resource type="Texture2D" uid="uid://i5osfygijtwo" path="res://assets/click/click3.png" id="3_i3ttm"]
+[ext_resource type="Texture2D" uid="uid://1ts4kyekyq1" path="res://assets/click/click4.png" id="4_wr4gk"]
+[ext_resource type="Texture2D" uid="uid://h4pxxivuwd88" path="res://assets/click/click5.png" id="5_md0dq"]
+[ext_resource type="Texture2D" uid="uid://cbec6sa87g8ua" path="res://assets/click/click6.png" id="6_cfd6g"]
+[ext_resource type="Texture2D" uid="uid://b8mtnw24p7jyq" path="res://assets/click/click8.png" id="7_g0537"]
+
+[resource]
+resource_name = "click"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_fl4lh"), ExtResource("2_c1i4m"), ExtResource("3_i3ttm"), ExtResource("4_wr4gk"), ExtResource("5_md0dq"), ExtResource("6_cfd6g"), ExtResource("7_g0537")]
+}
