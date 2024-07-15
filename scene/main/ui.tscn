@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b405njjdeo60g"]
+[gd_scene load_steps=5 format=3 uid="uid://b405njjdeo60g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_1jrra"]
 [ext_resource type="Texture2D" uid="uid://cajg1tcsbpvf2" path="res://assets/icon_season/frame.png" id="1_5q6eo"]
 [ext_resource type="Script" path="res://scripts/buttons/back_to_menu.gd" id="2_yhi28"]
+[ext_resource type="Script" path="res://scripts/buttons/restart.gd" id="3_b2uqk"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -90,6 +91,7 @@ theme_override_constants/margin_right = 10
 [node name="Button" type="Button" parent="MenuSystem/MarginContainer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "ReStart"
+script = ExtResource("3_b2uqk")
 
 [node name="BackToMenu" type="MarginContainer" parent="MenuSystem/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -105,5 +107,6 @@ script = ExtResource("2_yhi28")
 wait_time = 5.0
 autostart = true
 
+[connection signal="button_down" from="MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" to="MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" method="_on_button_down"]
 [connection signal="button_down" from="MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" to="MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" method="_on_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

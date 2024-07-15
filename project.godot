@@ -11,10 +11,12 @@ config_version=5
 [application]
 
 config/name="Light Year Traveler"
+config/version="0.1"
 run/main_scene="res://scene/main/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0.0784314, 0.133333, 0.25098, 1)
 boot_splash/image="res://assets/godot_wild_jam/background.png"
-config/icon="res://icon.svg"
+config/icon="res://assets/planet/winter.png"
 
 [display]
 
