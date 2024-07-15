@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvy1en3oaaxpo"]
+
+[ext_resource type="Texture2D" uid="uid://h4pxxivuwd88" path="res://assets/click/click5.png" id="1_nn24a"]
+
+[node name="AnimationClick" type="TextureRect"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("1_nn24a")

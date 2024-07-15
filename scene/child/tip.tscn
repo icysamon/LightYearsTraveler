@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://kn2o8fu08sy5"]
+
+[ext_resource type="Texture2D" uid="uid://da7h37vhvnpn5" path="res://assets/tip/tip.png" id="1_n1gxc"]
+[ext_resource type="Script" path="res://scripts/tip.gd" id="2_qmeje"]
+
+[node name="Tip" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_qmeje")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+texture = ExtResource("1_n1gxc")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = -89.0
+offset_top = 1.0
+offset_right = 144.0
+offset_bottom = 73.0
+text = "This planet has no energy left."
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

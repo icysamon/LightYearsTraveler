@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://66n7t0kwdk12"]
+[gd_scene load_steps=20 format=3 uid="uid://66n7t0kwdk12"]
 
 [ext_resource type="Theme" uid="uid://cc438u041qhka" path="res://resource/theme.tres" id="1_eyu4o"]
 [ext_resource type="Texture2D" uid="uid://csekfupl2hif6" path="res://assets/background/background2.png" id="1_ne1yg"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bjpchcnsfvqal" path="res://assets/planet/black_hole.png" id="7_03bhx"]
 [ext_resource type="Texture2D" uid="uid://bclt5ey67q1" path="res://assets/planet/winter.png" id="7_74srn"]
 [ext_resource type="Texture2D" uid="uid://6wqeuji1jev3" path="res://assets/background/background1.png" id="12_3xsv1"]
+[ext_resource type="AudioStream" uid="uid://cb8udf38rdyb7" path="res://assets/sfx/Lead A Nemesida BS.wav" id="13_nqoi4"]
+[ext_resource type="AudioStream" uid="uid://7ytigwnde2dq" path="res://assets/music/menu/Mixdown/menu.wav" id="14_qxyax"]
+[ext_resource type="Script" path="res://scripts/music_menu.gd" id="15_v3xuf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yonf3"]
 font_size = 36
@@ -180,5 +183,16 @@ text = "Game Design / Art / Programming / Music / SFX : icysamon"
 label_settings = SubResource("LabelSettings_xys3u")
 horizontal_alignment = 1
 
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_nqoi4")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_qxyax")
+autoplay = true
+mix_target = 1
+script = ExtResource("15_v3xuf")
+
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_mouse_entered"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" method="_on_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" method="_on_mouse_entered"]

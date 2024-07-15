@@ -22,6 +22,7 @@ config/icon="res://assets/planet/winter.png"
 
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+mouse_cursor/custom_image="res://assets/click/click1.png"
 
 [input]
 

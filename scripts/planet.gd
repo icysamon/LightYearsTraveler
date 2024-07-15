@@ -2,6 +2,7 @@ extends Node2D
 
 const TWEEN_SCALE_TIME = 0.1
 
+var TIP = preload("res://scene/child/tip.tscn")
 @onready var SPRITE2D = $Sprite2D
 @export var TEXTURE : Texture
 @export var speed_rotation : float = 0.5
@@ -25,7 +26,7 @@ var default_scale : Vector2 = Vector2.ONE
 var tween_size_add : Vector2 = Vector2.ONE * 0.2
 
 var status : String = "null"
-
+var planet_energy : int = 10
 
 # area node
 var get_player : bool = false
@@ -95,14 +96,20 @@ func _on_timer_timeout():
 
 
 func _on_timer_stamina_timeout():
-	if get_player:
+	if get_player and planet_energy > 0 and player.stamina != null:
 		match SPRITE2D.texture:
 			PLANET_SPRING:
 				player.stamina += 3
+				planet_energy -= 3
 			PLANET_SUMMER:
 				player.stamina += 2
+				planet_energy -= 2
 			PLANET_AUTUMN:
 				player.stamina += 1
+				planet_energy -= 1
 			PLANET_WINTER:
-				player.stamina += 0
+				pass
+	elif get_player and planet_energy <= 0:
+		var tip = TIP.instantiate()
+		get_tree().root.get_node("Node2D/Player/Camera2D/UI").add_child(tip)
 	pass # Replace with function body.
