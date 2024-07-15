@@ -27,6 +27,11 @@ var tween_size_add : Vector2 = Vector2.ONE * 0.2
 var status : String = "null"
 
 
+# area node
+var get_player : bool = false
+var player
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	default_scale = scale
@@ -40,7 +45,6 @@ func _ready():
 		PLANET_BLACK_HOLE: status = "black_hole"
 		
 
-	
 func _physics_process(delta):
 	rotation += speed_rotation * delta
 
@@ -56,7 +60,9 @@ func _on_mouse_exited():
 
 
 func _on_area_2d_area_entered(area):
-	pass # Replace with function body.
+	# get player node
+	player = area.owner
+	get_player = true
 
 
 func _on_timer_timeout():
@@ -85,4 +91,18 @@ func _on_timer_timeout():
 				PLANET_WINTER: status = "winter"
 				PLANET_HELL0: status = "hello"
 				PLANET_BLACK_HOLE: status = "black_hole"
+	pass # Replace with function body.
+
+
+func _on_timer_stamina_timeout():
+	if get_player:
+		match SPRITE2D.texture:
+			PLANET_SPRING:
+				player.stamina += 3
+			PLANET_SUMMER:
+				player.stamina += 2
+			PLANET_AUTUMN:
+				player.stamina += 1
+			PLANET_WINTER:
+				player.stamina += 0
 	pass # Replace with function body.

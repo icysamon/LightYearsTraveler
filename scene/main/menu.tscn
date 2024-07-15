@@ -110,7 +110,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Title"]
 layout_mode = 2
-text = "Million Light Traveler"
+text = "Light Year Traveler"
 label_settings = SubResource("LabelSettings_yonf3")
 horizontal_alignment = 1
 
