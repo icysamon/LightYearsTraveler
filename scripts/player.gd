@@ -5,8 +5,12 @@ extends Sprite2D
 var stamina : int = 1
 var area_name = "player"
 
+var flag_game_over : bool = false
+
 func _process(delta):
-	# game over
+	# set game over ui
 	var game_over = GAME_OVER.instantiate()
-	if stamina <= 0:
-		add_child(game_over)
+	if stamina <= 0 and !flag_game_over:
+		flag_game_over = true
+		$Camera2D/UI.add_child(game_over)
+		$Camera2D/UI.move_child(game_over, 0)
