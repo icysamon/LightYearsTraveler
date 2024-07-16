@@ -43,6 +43,8 @@ func _ready():
 		planet.speed_rotation = randf_range(-1.0, 1.0)
 		planet.position = Vector2(x, y)
 		add_child(planet)
+		if planet.get_planet:
+			planet.queue_free()
 		
 		creation_radius += R_INCREMENT
 	

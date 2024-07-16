@@ -30,6 +30,7 @@ var planet_energy : int = 10
 
 # area node
 var get_player : bool = false
+var get_planet : bool = false
 var player
 var area_name = "planet"
 
@@ -63,9 +64,14 @@ func _on_mouse_exited():
 
 func _on_area_2d_area_entered(area):
 	# get player node
-	if area_name == "player":
+	print(area)
+	if area.area_type == "player":
 		player = area.owner
+		get_planet = false
 		get_player = true
+	elif area.area_type == "planet":
+		get_player = false
+		get_planet = true	
 	pass
 
 
