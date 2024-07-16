@@ -33,7 +33,7 @@ var get_player : bool = false
 var get_planet : bool = false
 var player
 var area_name = "planet"
-
+var flag_tip : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -64,7 +64,6 @@ func _on_mouse_exited():
 
 func _on_area_2d_area_entered(area):
 	# get player node
-	print(area)
 	if area.area_type == "player":
 		player = area.owner
 		get_planet = false
@@ -119,6 +118,15 @@ func _on_timer_stamina_timeout():
 			PLANET_WINTER:
 				pass
 	elif get_player and planet_energy <= 0:
-		var tip = TIP.instantiate()
-		get_tree().root.get_node("Node2D/Player/Camera2D").add_child(tip)
+		if !flag_tip:
+			flag_tip = true
+			var tip = TIP.instantiate()
+			get_tree().root.get_node("Node2D/Player/Camera2D").add_child(tip)
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area):
+	if area.area_type == "player":
+		get_player = false
+		flag_tip = false
 	pass # Replace with function body.
