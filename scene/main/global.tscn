@@ -34,6 +34,7 @@ libraries = {
 [node name="AnimationClick" parent="." instance=ExtResource("6_ffp2u")]
 offset_left = 0.0
 offset_top = 0.0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(-20, -20)
 texture = ExtResource("8_gnuu0")

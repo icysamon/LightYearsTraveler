@@ -32,12 +32,13 @@ var planet_style = [
 	PLANET_HELL0,
 	PLANET_BLACK_HOLE]
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
+	# randomly generated planets
 	for i in PLANET_QUANTITY:
 		var planet = PLANET.instantiate()	
-		var dir = randi_range(creation_radius, creation_radius + R_INCREMENT)
-		var deg = randf_range(0, 2 * PI)
+		var dir = randi_range(creation_radius, creation_radius + R_INCREMENT) # creation radius
+		var deg = randf_range(0, 2 * PI) # creation degree
 		var x = cos(deg) * dir
 		var y = sin(deg) * dir
 		
@@ -79,10 +80,17 @@ func _process(delta):
 	else:
 		animation_click.visible = true
 	pass
-	
+
+
+# input event
 func _input(event):
 	if event.is_action_pressed("move"):
+		#tell system player can be order
 		flag_move = true
+		
+		# set move target
 		target = get_global_mouse_position()
+		
+		# set mouse click animation
 		animation_click.position = target
 		animation_player.play("click")

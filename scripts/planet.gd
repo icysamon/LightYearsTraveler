@@ -8,6 +8,7 @@ var TIP = preload("res://scene/child/tip.tscn")
 @export var TEXTURE : Texture
 @export var speed_rotation : float = 0.5
 @export var event : Resource
+@export var texture_array : Array[Texture]
 
 
 const PLANET_SPRING = preload("res://assets/planet/spring.png")
@@ -28,7 +29,6 @@ var planet_style = [
 @export var event_array : Array[Resource]
 var default_scale : Vector2 = Vector2.ONE
 var tween_size_add : Vector2 = Vector2.ONE * 0.2
-
 var status : String = "null"
 var planet_energy : int = 10
 
