@@ -4,8 +4,11 @@ const TWEEN_SCALE_TIME = 0.1
 
 var TIP = preload("res://scene/child/tip.tscn")
 @onready var SPRITE2D = $Sprite2D
+@onready var GAME_OVER = preload("res://scene/child/game_over.tscn")
 @export var TEXTURE : Texture
 @export var speed_rotation : float = 0.5
+@export var event : Resource
+
 
 const PLANET_SPRING = preload("res://assets/planet/spring.png")
 const PLANET_SUMMER = preload("res://assets/planet/summer.png")
@@ -22,6 +25,7 @@ var planet_style = [
 	PLANET_HELL0,
 	PLANET_BLACK_HOLE]
 
+@export var event_array : Array[Resource]
 var default_scale : Vector2 = Vector2.ONE
 var tween_size_add : Vector2 = Vector2.ONE * 0.2
 
@@ -117,6 +121,9 @@ func _on_timer_stamina_timeout():
 				planet_energy -= 1
 			PLANET_WINTER:
 				pass
+			PLANET_BLACK_HOLE:
+				print("black hole")
+				player.stamina = 0
 	elif get_player and planet_energy <= 0:
 		if !flag_tip:
 			flag_tip = true

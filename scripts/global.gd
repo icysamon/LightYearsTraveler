@@ -22,6 +22,8 @@ const R_INCREMENT : int = 200
 var creation_radius : int = 0 
 var target : Vector2 = Vector2.ZERO
 var flag_move : bool = false
+var can_move : bool = true
+var last_target_normalized : Vector2 = Vector2.ZERO
 var planet_style = [
 	PLANET_SPRING, 
 	PLANET_SUMMER, 
@@ -42,6 +44,8 @@ func _ready():
 		planet.TEXTURE = planet_style.pick_random()
 		planet.speed_rotation = randf_range(-1.0, 1.0)
 		planet.position = Vector2(x, y)
+		planet.event = planet.event_array.pick_random()
+		print(planet.event)
 		add_child(planet)
 		if planet.get_planet:
 			planet.queue_free()
@@ -50,12 +54,26 @@ func _ready():
 	
 	pass # Replace with function body.
 
-
+func _draw():
+	if player.stamina <= 0 and flag_move:
+		draw_line(player.global_position, get_global_mouse_position(), Color.BLUE, 3.0)
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if flag_move:
+	if player.stamina > 0 and flag_move:
 		var target_normalized = (target - player.position).normalized()
 		player.position += target_normalized * speed * delta
+	elif player.stamina <= 0:
+		queue_redraw()
+		
+		if flag_move and can_move and Input.is_action_just_pressed("move"):
+			can_move = false
+			last_target_normalized = (target - player.position).normalized()
+			
+		elif flag_move and !can_move:
+			player.position += last_target_normalized * speed * delta
+			pass
+		
 	
 	if !animation_player.is_playing():
 		animation_click.visible = false
