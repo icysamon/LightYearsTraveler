@@ -73,7 +73,7 @@ func _on_mouse_exited():
 func _on_area_2d_area_entered(area):
 	# get player node
 	if area.area_type == "player":
-		player = area.owner
+		player = area.owner # get player parent node
 		get_planet = false
 		get_player = true
 		
@@ -81,11 +81,11 @@ func _on_area_2d_area_entered(area):
 		if not flag_first_enter:
 			flag_first_enter = true
 			var tip = TIP.instantiate()
-			tip.scale = Vector2.ONE * 0.5
-			#print(tip.event_name.text)
+
+			# set tip information
 			tip.event_name = event.name
 			tip.event_description = event.description
-			get_tree().root.get_node("Node2D/Player/Camera2D").add_child(tip)
+			player.get_node("Camera2D/UI").add_child(tip)
 		
 	elif area.area_type == "planet":
 		get_player = false

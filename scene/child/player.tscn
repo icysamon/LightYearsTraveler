@@ -6,33 +6,29 @@
 [ext_resource type="Script" path="res://scripts/area/player_area.gd" id="4_cmvo7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1yhp"]
-size = Vector2(10, 9)
+size = Vector2(70, 63)
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Sprite2D"]
 texture_filter = 1
-scale = Vector2(3, 3)
+scale = Vector2(7, 7)
+texture = ExtResource("1_e5cpc")
 script = ExtResource("1_1c44o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.142857, 0.142857)
 
 [node name="UI" parent="Camera2D" instance=ExtResource("3_8hhjv")]
 custom_minimum_size = Vector2(1152, 648)
-offset_left = -191.0
-offset_top = -107.0
-offset_right = 1087.0
-offset_bottom = 610.0
-scale = Vector2(0.3, 0.3)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_e5cpc")
-
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.142857, 0.142857)
 script = ExtResource("4_cmvo7")
 metadata/type = "Player"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 0.5)
+position = Vector2(-1.96695e-06, 3.5)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m1yhp")

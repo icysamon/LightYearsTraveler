@@ -2,7 +2,7 @@ extends Control
 
 
 @onready var STAMINA_STATUS = $StaminaSystem/MarginContainer/HBoxContainer/Label_Status
-@onready var player = $"../.."
+@onready var player = owner
 
 
 func _ready():

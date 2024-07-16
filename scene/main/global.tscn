@@ -18,7 +18,6 @@ texture_filter = 1
 script = ExtResource("1_njcqn")
 
 [node name="Player" parent="." instance=ExtResource("3_w17ff")]
-position = Vector2(574, 325)
 
 [node name="Planet" parent="." instance=ExtResource("2_yc56x")]
 position = Vector2(567, 437)
