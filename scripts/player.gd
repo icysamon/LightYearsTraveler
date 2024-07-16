@@ -14,3 +14,4 @@ func _process(delta):
 		flag_game_over = true
 		$Camera2D/UI.add_child(game_over)
 		$Camera2D/UI.move_child(game_over, 0)
+	return delta

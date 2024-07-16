@@ -4,4 +4,4 @@ extends AudioStreamPlayer
 func _process(delta):
 	if !self.is_playing():
 		self.play()
-	pass
+	return delta

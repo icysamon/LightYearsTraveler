@@ -21,7 +21,6 @@ script = ExtResource("1_njcqn")
 
 [node name="Planet" parent="." instance=ExtResource("2_yc56x")]
 position = Vector2(567, 437)
-speed_rotation = 0.5
 event = ExtResource("5_padxx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
