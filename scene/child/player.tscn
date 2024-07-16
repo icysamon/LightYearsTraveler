@@ -16,15 +16,11 @@ script = ExtResource("1_1c44o")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="UI" parent="Camera2D" instance=ExtResource("3_8hhjv")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -192.0
+custom_minimum_size = Vector2(1152, 648)
+offset_left = -191.0
 offset_top = -107.0
-offset_right = -192.0
-offset_bottom = -107.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_right = 1087.0
+offset_bottom = 610.0
 scale = Vector2(0.3, 0.3)
 size_flags_horizontal = 4
 size_flags_vertical = 4

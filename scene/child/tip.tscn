@@ -8,24 +8,15 @@ font_size = 10
 
 [node name="Tip" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 mouse_filter = 1
 script = ExtResource("2_qmeje")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -148.5
-offset_right = 11.5
+offset_right = 160.0
 offset_bottom = 90.0
-grow_horizontal = 2
 texture = ExtResource("1_n1gxc")
 
 [node name="Label" type="Label" parent="TextureRect"]

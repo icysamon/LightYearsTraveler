@@ -121,7 +121,9 @@ func _on_timer_stamina_timeout():
 		if !flag_tip:
 			flag_tip = true
 			var tip = TIP.instantiate()
+			tip.scale = Vector2.ONE * 0.5
 			get_tree().root.get_node("Node2D/Player/Camera2D").add_child(tip)
+			print(tip.position)
 	pass # Replace with function body.
 
 
