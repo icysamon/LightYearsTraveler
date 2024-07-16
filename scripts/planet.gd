@@ -38,6 +38,7 @@ var get_planet : bool = false
 var player
 var area_name = "planet"
 var flag_tip : bool = false
+var flag_first_enter : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -56,6 +57,9 @@ func _physics_process(delta):
 	rotation += speed_rotation * delta
 
 
+func _tip():
+	pass
+
 func _on_mouse_entered():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", default_scale + tween_size_add, TWEEN_SCALE_TIME)
@@ -72,6 +76,17 @@ func _on_area_2d_area_entered(area):
 		player = area.owner
 		get_planet = false
 		get_player = true
+		
+		# Display planet's event when player first enter
+		if not flag_first_enter:
+			flag_first_enter = true
+			var tip = TIP.instantiate()
+			tip.scale = Vector2.ONE * 0.5
+			#print(tip.event_name.text)
+			tip.event_name = event.name
+			tip.event_description = event.description
+			get_tree().root.get_node("Node2D/Player/Camera2D").add_child(tip)
+		
 	elif area.area_type == "planet":
 		get_player = false
 		get_planet = true	

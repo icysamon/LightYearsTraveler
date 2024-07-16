@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Event" load_steps=2 format=3 uid="uid://dk1yx7u7812n8"]
+
+[ext_resource type="Script" path="res://scripts/ref_counted_event.gd" id="1_m3pa6"]
+
+[resource]
+script = ExtResource("1_m3pa6")
+name = "Too Hot"
+description = "null"
+stamina = -5
