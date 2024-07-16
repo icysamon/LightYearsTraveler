@@ -7,13 +7,6 @@ extends Node2D
 
 @export var speed = 100
 
-const PLANET_SPRING = preload("res://assets/planet/spring.png")
-const PLANET_SUMMER = preload("res://assets/planet/summer.png")
-const PLANET_AUTUMN = preload("res://assets/planet/autumn.png")
-const PLANET_WINTER = preload("res://assets/planet/winter.png")
-const PLANET_HELL0 = preload("res://assets/planet/hell0.png")
-const PLANET_BLACK_HOLE = preload("res://assets/planet/black_hole.png")
-
 
 const PLANET_QUANTITY = 100
 const DISTANCE_MAX : int = 10000
@@ -24,13 +17,6 @@ var target : Vector2 = Vector2.ZERO
 var flag_move : bool = false
 var can_move : bool = true
 var last_target_normalized : Vector2 = Vector2.ZERO
-var planet_style = [
-	PLANET_SPRING, 
-	PLANET_SUMMER, 
-	PLANET_AUTUMN,
-	PLANET_WINTER,
-	PLANET_HELL0,
-	PLANET_BLACK_HOLE]
 
 
 func _ready():
@@ -42,7 +28,7 @@ func _ready():
 		var x = cos(deg) * dir
 		var y = sin(deg) * dir
 		
-		planet.TEXTURE = planet_style.pick_random()
+		#planet.TEXTURE = planet_style.pick_random()
 		planet.speed_rotation = randf_range(-1.0, 1.0)
 		planet.position = Vector2(x, y)
 		planet.event = planet.event_array.pick_random()
