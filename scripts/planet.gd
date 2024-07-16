@@ -111,5 +111,5 @@ func _on_timer_stamina_timeout():
 				pass
 	elif get_player and planet_energy <= 0:
 		var tip = TIP.instantiate()
-		get_tree().root.get_node("Node2D/Player/Camera2D/UI").add_child(tip)
+		get_tree().root.get_node("Node2D/Player/Camera2D").add_child(tip)
 	pass # Replace with function body.

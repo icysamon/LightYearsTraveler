@@ -1,8 +1,6 @@
 extends Control
 
-
 const TWEEN_SCALE_TIME = 0.2
-
 
 func _ready():
 	if modulate.a != 0:
