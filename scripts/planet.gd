@@ -31,6 +31,7 @@ var planet_energy : int = 10
 # area node
 var get_player : bool = false
 var player
+var area_name = "planet"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -62,8 +63,10 @@ func _on_mouse_exited():
 
 func _on_area_2d_area_entered(area):
 	# get player node
-	player = area.owner
-	get_player = true
+	if area_name == "player":
+		player = area.owner
+		get_player = true
+	pass
 
 
 func _on_timer_timeout():
