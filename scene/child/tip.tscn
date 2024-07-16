@@ -6,20 +6,14 @@
 [sub_resource type="LabelSettings" id="LabelSettings_kolpx"]
 font_size = 10
 
-[node name="Tip" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-mouse_filter = 1
-script = ExtResource("2_qmeje")
-
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Tip" type="TextureRect"]
 texture_filter = 1
-layout_mode = 1
 offset_right = 160.0
 offset_bottom = 90.0
 texture = ExtResource("1_n1gxc")
+script = ExtResource("2_qmeje")
 
-[node name="Name" type="Label" parent="TextureRect"]
+[node name="Name" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,7 +29,7 @@ grow_vertical = 2
 text = "This planet has no energy left."
 label_settings = SubResource("LabelSettings_kolpx")
 
-[node name="Description" type="Label" parent="TextureRect"]
+[node name="Description" type="Label" parent="."]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 48.0
