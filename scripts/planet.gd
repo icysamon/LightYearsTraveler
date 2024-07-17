@@ -57,10 +57,10 @@ var get_player : bool = false
 var get_planet : bool = false
 var flag_tip : bool = false
 var flag_first_enter : bool = false
-
+var tip_temp
 func _ready():
 	default_scale = scale
-	
+
 	# random set planet type
 	if !default_planet:
 		$Sprite2D.texture = planet_type_array.pick_random()
@@ -101,12 +101,23 @@ func _on_mouse_entered():
 	# tween animation when mouse entered
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", default_scale + tween_size_add, TWEEN_SCALE_TIME)
+	
+	# set tip information
+	if default_planet and in_menu:
+		var tip = TIP.instantiate()
+		tip.event_name = event.name
+		tip.event_description = event.description
+		owner.add_child(tip)
+		tip_temp = tip
 
 
 func _on_mouse_exited():
 	# tween animation when mouse exited
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", default_scale, TWEEN_SCALE_TIME)
+	
+	if default_planet and in_menu:
+		tip_temp.queue_free()
 
 
 func _on_area_2d_area_entered(area):
@@ -119,9 +130,9 @@ func _on_area_2d_area_entered(area):
 		# Display planet's event when player first enter
 		if not flag_first_enter:
 			flag_first_enter = true
-			var tip = TIP.instantiate()
-
+			
 			# set tip information
+			var tip = TIP.instantiate()
 			tip.event_name = event.name
 			tip.event_description = event.description
 			player.get_node("Camera2D/UI").add_child(tip)

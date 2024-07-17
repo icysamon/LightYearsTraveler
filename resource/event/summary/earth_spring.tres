@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Event" load_steps=2 format=3 uid="uid://ff31l5je3nx0"]
+
+[ext_resource type="Script" path="res://scripts/ref_counted_event.gd" id="1_smdf4"]
+
+[resource]
+script = ExtResource("1_smdf4")
+name = "Supper Earth (Spring)"
+description = "energy +3/s"
+stamina = 0

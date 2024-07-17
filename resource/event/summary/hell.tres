@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Event" load_steps=2 format=3 uid="uid://b3i3ugond3yy7"]
+
+[ext_resource type="Script" path="res://scripts/ref_counted_event.gd" id="1_nftqm"]
+
+[resource]
+script = ExtResource("1_nftqm")
+name = "Hell Planet"
+description = "energy -5/s"
+stamina = 0

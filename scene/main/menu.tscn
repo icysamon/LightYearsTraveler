@@ -1,20 +1,27 @@
-[gd_scene load_steps=20 format=3 uid="uid://66n7t0kwdk12"]
+[gd_scene load_steps=27 format=3 uid="uid://66n7t0kwdk12"]
 
 [ext_resource type="Theme" uid="uid://cc438u041qhka" path="res://resource/theme.tres" id="1_eyu4o"]
 [ext_resource type="Texture2D" uid="uid://csekfupl2hif6" path="res://assets/background/background2.png" id="1_ne1yg"]
 [ext_resource type="Script" path="res://scripts/buttons/quit.gd" id="2_d0l4t"]
 [ext_resource type="Script" path="res://scripts/buttons/start.gd" id="2_k88ey"]
 [ext_resource type="Texture2D" uid="uid://cjvk3ta5ckk6o" path="res://assets/planet/summer.png" id="3_6f6iw"]
+[ext_resource type="Resource" uid="uid://ff31l5je3nx0" path="res://resource/event/summary/earth_spring.tres" id="4_gqosc"]
 [ext_resource type="PackedScene" uid="uid://b5lv76xyyp2au" path="res://scene/child/planet.tscn" id="4_otphe"]
 [ext_resource type="Texture2D" uid="uid://cw1tqknepharf" path="res://assets/planet/spring.png" id="5_pjtmh"]
 [ext_resource type="Texture2D" uid="uid://d168mgpkdv2e1" path="res://assets/planet/hell0.png" id="6_275k1"]
+[ext_resource type="Resource" uid="uid://b3ckiienx85gu" path="res://resource/event/summary/earth_summer.tres" id="6_i0nmt"]
 [ext_resource type="Texture2D" uid="uid://rpmx6setmwut" path="res://assets/planet/autumn.png" id="6_t7mxe"]
 [ext_resource type="Texture2D" uid="uid://bjpchcnsfvqal" path="res://assets/planet/black_hole.png" id="7_03bhx"]
 [ext_resource type="Texture2D" uid="uid://bclt5ey67q1" path="res://assets/planet/winter.png" id="7_74srn"]
+[ext_resource type="Resource" uid="uid://b3wscft7hpm5l" path="res://resource/event/summary/earth_autumn.tres" id="8_06lex"]
+[ext_resource type="Resource" uid="uid://2hultig8oayj" path="res://resource/event/summary/earth_winter.tres" id="10_kbtir"]
 [ext_resource type="Texture2D" uid="uid://6wqeuji1jev3" path="res://assets/background/background1.png" id="12_3xsv1"]
+[ext_resource type="Resource" uid="uid://b3i3ugond3yy7" path="res://resource/event/summary/hell.tres" id="12_4phtn"]
 [ext_resource type="AudioStream" uid="uid://cb8udf38rdyb7" path="res://assets/sfx/Lead A Nemesida BS.wav" id="13_nqoi4"]
+[ext_resource type="Resource" uid="uid://bw3xek8b5j8n8" path="res://resource/event/summary/black_hole.tres" id="14_hqn8q"]
 [ext_resource type="AudioStream" uid="uid://7ytigwnde2dq" path="res://assets/music/menu/Mixdown/menu.wav" id="14_qxyax"]
 [ext_resource type="Script" path="res://scripts/music_menu.gd" id="15_v3xuf"]
+[ext_resource type="Script" path="res://scripts/buttons/options.gd" id="17_8kqio"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yonf3"]
 font_size = 36
@@ -69,33 +76,44 @@ z_index = 10
 [node name="Planet" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(665, 209)
 texture = ExtResource("5_pjtmh")
+event = ExtResource("4_gqosc")
 default_planet = true
 in_menu = true
 
 [node name="Planet2" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(904, 172)
 texture = ExtResource("3_6f6iw")
+event = ExtResource("6_i0nmt")
 default_planet = true
+in_menu = true
 
 [node name="Planet3" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(790, 334)
 texture = ExtResource("6_t7mxe")
+event = ExtResource("8_06lex")
 default_planet = true
+in_menu = true
 
 [node name="Planet4" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(636, 455)
 texture = ExtResource("7_74srn")
+event = ExtResource("10_kbtir")
 default_planet = true
+in_menu = true
 
 [node name="Planet5" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(855, 500)
 texture = ExtResource("6_275k1")
+event = ExtResource("12_4phtn")
 default_planet = true
+in_menu = true
 
 [node name="Planet6" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(995, 362)
 texture = ExtResource("7_03bhx")
+event = ExtResource("14_hqn8q")
 default_planet = true
+in_menu = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -150,6 +168,7 @@ theme = ExtResource("1_eyu4o")
 text = "Options"
 icon_alignment = 1
 language = "en_US"
+script = ExtResource("17_8kqio")
 
 [node name="Quit" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -201,5 +220,6 @@ script = ExtResource("15_v3xuf")
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_button_down"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_mouse_entered"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Options/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Options/Button" method="_on_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" method="_on_button_down"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" method="_on_mouse_entered"]

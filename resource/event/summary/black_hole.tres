@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Event" load_steps=2 format=3 uid="uid://bw3xek8b5j8n8"]
+
+[ext_resource type="Script" path="res://scripts/ref_counted_event.gd" id="1_oxbwn"]
+
+[resource]
+script = ExtResource("1_oxbwn")
+name = "Black Hole"
+description = "energy -100/s"
+stamina = 0
