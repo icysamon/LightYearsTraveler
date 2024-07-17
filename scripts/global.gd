@@ -6,11 +6,9 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 
 
-
-
 const PLANET_QUANTITY = 100
 const DISTANCE_MAX : int = 10000
-const R_INCREMENT : int = 200
+const R_INCREMENT : int = 500
 
 var creation_radius : int = 0 
 var target : Vector2 = Vector2.ZERO
@@ -28,8 +26,16 @@ func _ready():
 		var x = cos(deg) * dir
 		var y = sin(deg) * dir
 		
-		#planet.TEXTURE = planet_style.pick_random()
+		
+		# random set planet rotation speed
 		planet.speed_rotation = randf_range(-1.0, 1.0)
+		
+		# random set planet scale
+		var planet_scale = randf_range(1.0, 4.0)
+		planet.scale.x = planet_scale
+		planet.scale.y = planet_scale
+		
+		# set planet random position
 		planet.position = Vector2(x, y)
 		planet.event = planet.event_array.pick_random()
 		add_child(planet)

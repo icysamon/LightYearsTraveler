@@ -68,27 +68,34 @@ z_index = 10
 
 [node name="Planet" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(665, 209)
-TEXTURE = ExtResource("5_pjtmh")
+texture = ExtResource("5_pjtmh")
+default_planet = true
+in_menu = true
 
 [node name="Planet2" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(904, 172)
-TEXTURE = ExtResource("3_6f6iw")
+texture = ExtResource("3_6f6iw")
+default_planet = true
 
 [node name="Planet3" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(790, 334)
-TEXTURE = ExtResource("6_t7mxe")
+texture = ExtResource("6_t7mxe")
+default_planet = true
 
 [node name="Planet4" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(636, 455)
-TEXTURE = ExtResource("7_74srn")
+texture = ExtResource("7_74srn")
+default_planet = true
 
 [node name="Planet5" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(855, 500)
-TEXTURE = ExtResource("6_275k1")
+texture = ExtResource("6_275k1")
+default_planet = true
 
 [node name="Planet6" parent="Planets" instance=ExtResource("4_otphe")]
 position = Vector2(995, 362)
-TEXTURE = ExtResource("7_03bhx")
+texture = ExtResource("7_03bhx")
+default_planet = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

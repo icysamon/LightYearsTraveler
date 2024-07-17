@@ -8,7 +8,8 @@ extends Node2D
 @export var speed_rotation : float = 0.5
 @export var event : Resource
 @export var event_array : Array[Resource]
-
+@export var default_planet : bool = false
+@export var in_menu : bool = false
 enum Type{
 	SUPPER_EARTH = 0,
 	BARREN = 1,
@@ -61,14 +62,22 @@ func _ready():
 	default_scale = scale
 	
 	# random set planet type
-	$Sprite2D.texture = planet_type_array.pick_random()
-	for i in planet_type_array.size():
-		if $Sprite2D.texture == planet_type_array[i]:
-			planet_type = i
-			break
+	if !default_planet:
+		$Sprite2D.texture = planet_type_array.pick_random()
+		for i in planet_type_array.size():
+			if $Sprite2D.texture == planet_type_array[i]:
+				planet_type = i
+				break
+	# default planet
+	else:
+		$Sprite2D.texture = texture
+		planet_type = Type.SUPPER_EARTH
+		planet_season = Season.SPRING
+		if !$Sprite2D.texture:
+			$Sprite2D.texture = planet_type_array[Type.SUPPER_EARTH]
 	
 	# set planet season if it is super earth
-	if planet_type == Type.SUPPER_EARTH:
+	if planet_type == Type.SUPPER_EARTH and !default_planet:
 		$Sprite2D.texture = planet_season_array.pick_random()
 		for i in planet_type_array.size():
 			if $Sprite2D.texture == planet_season_array[i]:
@@ -127,30 +136,31 @@ func _on_area_2d_area_entered(area):
 
 func _on_timer_timeout():
 	# random change planet type
-	match planet_type:
-		Type.SUPPER_EARTH:
-			if _probability(0.3):
-				$Sprite2D.texture = planet_type_array[Type.HELL]
-				planet_type = Type.HELL
-		Type.BARREN:
-			if _probability(0.3):
-				$Sprite2D.texture = planet_type_array[Type.HELL]
-				planet_type = Type.HELL
-		Type.HELL:
-			if _probability(0.3):
-				$Sprite2D.texture = planet_type_array[Type.SUPPER_EARTH]
-				planet_type = Type.SUPPER_EARTH
-			else:
-				$Sprite2D.texture = planet_type_array[Type.BLACK_HOLE]
-				planet_type = Type.BLACK_HOLE
-		Type.BLACK_HOLE:
-			if _probability(0.3):
-				$Sprite2D.texture = planet_type_array[Type.HELL]
-				planet_type = Type.HELL
+	if !default_planet:
+		match planet_type:
+			Type.SUPPER_EARTH:
+				if _probability(0.3):
+					$Sprite2D.texture = planet_type_array[Type.HELL]
+					planet_type = Type.HELL
+			Type.BARREN:
+				if _probability(0.3):
+					$Sprite2D.texture = planet_type_array[Type.HELL]
+					planet_type = Type.HELL
+			Type.HELL:
+				if _probability(0.3):
+					$Sprite2D.texture = planet_type_array[Type.SUPPER_EARTH]
+					planet_type = Type.SUPPER_EARTH
+				else:
+					$Sprite2D.texture = planet_type_array[Type.BLACK_HOLE]
+					planet_type = Type.BLACK_HOLE
+			Type.BLACK_HOLE:
+				if _probability(0.3):
+					$Sprite2D.texture = planet_type_array[Type.HELL]
+					planet_type = Type.HELL
 
 
-	# change supper earth season			
-	if planet_type == Type.SUPPER_EARTH:
+	# change supper earth season	
+	if planet_type == Type.SUPPER_EARTH and !default_planet:
 		match planet_season:
 			Season.SPRING:
 				$Sprite2D.texture = planet_season_array[Season.SUMMER]

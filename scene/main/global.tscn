@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://btjqepmvg6mm8"]
+[gd_scene load_steps=10 format=3 uid="uid://btjqepmvg6mm8"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_njcqn"]
 [ext_resource type="PackedScene" uid="uid://b5lv76xyyp2au" path="res://scene/child/planet.tscn" id="2_yc56x"]
 [ext_resource type="PackedScene" uid="uid://cxpv1vg6rsf8v" path="res://scene/child/player.tscn" id="3_w17ff"]
+[ext_resource type="Texture2D" uid="uid://cw1tqknepharf" path="res://assets/planet/spring.png" id="4_1drhe"]
 [ext_resource type="Resource" uid="uid://bug7l5esswclg" path="res://resource/event/beautiful_spring.tres" id="5_padxx"]
 [ext_resource type="Animation" uid="uid://cwarwfb3po1eh" path="res://resource/animation/click.tres" id="5_vkv1w"]
 [ext_resource type="PackedScene" uid="uid://bvy1en3oaaxpo" path="res://scene/child/animation_click.tscn" id="6_ffp2u"]
@@ -20,8 +21,10 @@ script = ExtResource("1_njcqn")
 [node name="Player" parent="." instance=ExtResource("3_w17ff")]
 
 [node name="Planet" parent="." instance=ExtResource("2_yc56x")]
-position = Vector2(567, 437)
+position = Vector2(156, 136)
+texture = ExtResource("4_1drhe")
 event = ExtResource("5_padxx")
+default_planet = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationClick")
