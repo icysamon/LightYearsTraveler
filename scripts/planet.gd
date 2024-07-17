@@ -28,7 +28,7 @@ enum Season{
 var planet_type
 var planet_type_array : Array[Texture] = [
 	preload("res://assets/planet/spring.png"),
-	preload("res://assets/planet/hell0.png"),
+	preload("res://assets/planet/barren.png"),
 	preload("res://assets/planet/hell0.png"),
 	preload("res://assets/planet/black_hole.png")
 	]
@@ -126,6 +126,10 @@ func _on_area_2d_area_entered(area):
 		player = area.owner # get player parent node
 		get_planet = false
 		get_player = true
+		print(planet_type)
+		
+		if planet_type == Type.BLACK_HOLE:
+			player.stamina -= 100
 		
 		# Display planet's event when player first enter
 		if not flag_first_enter:
@@ -139,7 +143,7 @@ func _on_area_2d_area_entered(area):
 	
 	# when get planet (error status)	
 	elif area.area_type == "planet":
-		push_warning("planet to planet collision!")
+		print("planet to planet collision!")
 		get_player = false
 		get_planet = true	
 	pass
@@ -201,8 +205,14 @@ func _on_timer_stamina_timeout():
 					Season.WINTER:
 						player.stamina += 1
 						planet_energy -= 2
-			Type.SUPPER_EARTH:
-				player.stamina -= 10000
+			Type.HELL:
+				player.stamina -= 8
+				
+			Type.BARREN:
+				player.stamina -= 2
+			Type.BLACK_HOLE:
+				player.stamina -= 100
+				
 
 	# game over
 	elif get_player and planet_energy <= 0:
