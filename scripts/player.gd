@@ -4,6 +4,7 @@ extends Sprite2D
 
 var stamina : int = 1
 var area_name = "player"
+var speed : int = 120
 
 var flag_game_over : bool = false
 

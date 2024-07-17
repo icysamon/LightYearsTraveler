@@ -41,9 +41,6 @@ var planet_season_array : Array[Texture] = [
 	preload("res://assets/planet/winter.png"),
 ]
 
-
-
-
 # tween
 var default_scale : Vector2 = Vector2.ONE
 var tween_size_add : Vector2 = Vector2.ONE * 0.2
@@ -190,9 +187,12 @@ func _on_timer_stamina_timeout():
 	elif get_player and planet_energy <= 0:
 		if !flag_tip:
 			flag_tip = true
+			# display event: "you should leave"
 			var tip = TIP.instantiate()
-			tip.scale = Vector2.ONE * 0.5
-			get_tree().root.get_node("Node2D/Player/Camera2D").add_child(tip)
+			event = load("res://resource/event/you_should_leave.tres")
+			tip.event_name = event.name
+			tip.event_description = event.description
+			player.get_node("Camera2D/UI").add_child(tip)
 	pass
 
 

@@ -5,7 +5,7 @@ extends Node2D
 @onready var animation_click = $AnimationClick
 @onready var animation_player = $AnimationPlayer
 
-@export var speed = 100
+
 
 
 const PLANET_QUANTITY = 100
@@ -38,7 +38,8 @@ func _ready():
 		
 		creation_radius += R_INCREMENT
 	
-	pass # Replace with function body.
+	pass
+	
 
 func _draw():
 	if player.stamina <= 0 and flag_move:
@@ -48,7 +49,7 @@ func _draw():
 func _process(delta):
 	if player.stamina > 0 and flag_move:
 		var target_normalized = (target - player.position).normalized()
-		player.position += target_normalized * speed * delta
+		player.position += target_normalized * player.speed * delta
 	elif player.stamina <= 0:
 		queue_redraw()
 		
@@ -57,7 +58,7 @@ func _process(delta):
 			last_target_normalized = (target - player.position).normalized()
 			
 		elif flag_move and !can_move:
-			player.position += last_target_normalized * speed * delta
+			player.position += last_target_normalized * player.speed * delta
 			pass
 		
 	
