@@ -116,7 +116,7 @@ func _on_mouse_exited():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", default_scale, TWEEN_SCALE_TIME)
 	
-	if default_planet and in_menu:
+	if default_planet and in_menu and tip_temp != null:
 		tip_temp.queue_free()
 
 

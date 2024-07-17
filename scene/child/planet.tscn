@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5lv76xyyp2au"]
+[gd_scene load_steps=8 format=3 uid="uid://b5lv76xyyp2au"]
 
 [ext_resource type="Script" path="res://scripts/planet.gd" id="1_qtws5"]
+[ext_resource type="Texture2D" uid="uid://cw1tqknepharf" path="res://assets/planet/spring.png" id="2_mf7uw"]
 [ext_resource type="Resource" uid="uid://bug7l5esswclg" path="res://resource/event/beautiful_spring.tres" id="2_ufkd7"]
 [ext_resource type="Resource" uid="uid://dk1yx7u7812n8" path="res://resource/event/too_hot.tres" id="3_7epvx"]
 [ext_resource type="Script" path="res://scripts/area/planet_area.gd" id="3_vqtv6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4js5"]
 size = Vector2(8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a0wof"]
+polygon = PackedVector2Array(-20, -19, 19, -19, 19, 21, -20, 21)
 
 [node name="Planet" type="Node2D"]
 z_index = -10
@@ -16,6 +20,7 @@ event_array = Array[Resource]([ExtResource("2_ufkd7"), ExtResource("3_7epvx")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
+texture = ExtResource("2_mf7uw")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 script = ExtResource("3_vqtv6")
@@ -23,6 +28,11 @@ script = ExtResource("3_vqtv6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 position = Vector2(1.90735e-07, 2.86102e-07)
 shape = SubResource("RectangleShape2D_y4js5")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
+visible = false
+scale = Vector2(0.1, 0.1)
+occluder = SubResource("OccluderPolygon2D_a0wof")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
