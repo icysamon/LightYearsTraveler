@@ -4,7 +4,7 @@ extends Node2D
 @onready var player = $Player
 @onready var animation_click = $AnimationClick
 @onready var animation_player = $AnimationPlayer
-
+@onready var planet_navigation = $Player/CanvasLayer/Navigation
 
 const PLANET_QUANTITY = 100
 const DISTANCE_MAX : int = 10000
@@ -46,7 +46,6 @@ func _ready():
 		
 		planet_array.append(planet)
 		creation_radius += R_INCREMENT
-	print(planet_array)
 	
 
 func _draw():
@@ -89,3 +88,18 @@ func _input(event):
 		# set mouse click animation
 		animation_click.position = target
 		animation_player.play("click")
+	
+	if event.is_action_pressed("navigation"):
+		_find_planet()
+
+func _find_planet():
+	for i in planet_array.size():
+		var planet_position = planet_array[i].position - player.position
+		if planet_position.length() < 500:
+			print(planet_position.normalized())
+			print(planet_navigation.position)
+			planet_navigation.position = get_viewport_rect().size / 2 + planet_position.normalized() * 50
+			planet_navigation.visible = true
+			print(planet_navigation.position)
+			break
+		

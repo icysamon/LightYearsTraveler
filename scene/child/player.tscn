@@ -21,10 +21,6 @@ scale = Vector2(0.142857, 0.142857)
 [node name="UI" parent="Camera2D" instance=ExtResource("3_8hhjv")]
 light_mask = 8
 custom_minimum_size = Vector2(1152, 648)
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1

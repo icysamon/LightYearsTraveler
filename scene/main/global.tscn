@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://btjqepmvg6mm8"]
+[gd_scene load_steps=11 format=3 uid="uid://btjqepmvg6mm8"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_njcqn"]
 [ext_resource type="PackedScene" uid="uid://b5lv76xyyp2au" path="res://scene/child/planet.tscn" id="2_yc56x"]
@@ -8,6 +8,7 @@
 [ext_resource type="Animation" uid="uid://cwarwfb3po1eh" path="res://resource/animation/click.tres" id="5_vkv1w"]
 [ext_resource type="PackedScene" uid="uid://bvy1en3oaaxpo" path="res://scene/child/animation_click.tscn" id="6_ffp2u"]
 [ext_resource type="Texture2D" uid="uid://d2fva8bch13el" path="res://assets/click/click1.png" id="8_gnuu0"]
+[ext_resource type="Texture2D" uid="uid://c6alry8xdllb2" path="res://icon.svg" id="9_fjh4i"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x414w"]
 _data = {
@@ -22,6 +23,15 @@ script = ExtResource("1_njcqn")
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_w17ff")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="Navigation" type="TextureRect" parent="Player/CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_fjh4i")
 
 [node name="Planet" parent="." instance=ExtResource("2_yc56x")]
 position = Vector2(156, 136)
