@@ -14,8 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1jrra")
 
-[node name="SeasonSystem" type="Control" parent="."]
-layout_mode = 2
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SeasonSystem" type="Control" parent="CanvasLayer"]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -23,20 +25,20 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="SeasonSystem"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SeasonSystem"]
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="TextureRect_Frame" type="TextureRect" parent="SeasonSystem/MarginContainer"]
+[node name="TextureRect_Frame" type="TextureRect" parent="CanvasLayer/SeasonSystem/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_5q6eo")
 
-[node name="StaminaSystem" type="Control" parent="."]
-layout_mode = 2
+[node name="StaminaSystem" type="Control" parent="CanvasLayer"]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -44,26 +46,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="StaminaSystem"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/StaminaSystem"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="StaminaSystem/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/StaminaSystem/MarginContainer"]
 layout_mode = 2
 
-[node name="Label_Stamina" type="Label" parent="StaminaSystem/MarginContainer/HBoxContainer"]
+[node name="Label_Stamina" type="Label" parent="CanvasLayer/StaminaSystem/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Stamina: "
 
-[node name="Label_Status" type="Label" parent="StaminaSystem/MarginContainer/HBoxContainer"]
+[node name="Label_Status" type="Label" parent="CanvasLayer/StaminaSystem/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "NULL"
 
-[node name="MenuSystem" type="Control" parent="."]
-layout_mode = 2
+[node name="MenuSystem" type="Control" parent="CanvasLayer"]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -71,7 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuSystem"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenuSystem"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -80,25 +82,25 @@ offset_left = -139.0
 offset_bottom = 41.0
 grow_horizontal = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuSystem/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MenuSystem/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="MenuSystem/MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 
-[node name="Button" type="Button" parent="MenuSystem/MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="Button" type="Button" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "ReStart"
 script = ExtResource("3_b2uqk")
 
-[node name="BackToMenu" type="MarginContainer" parent="MenuSystem/MarginContainer/HBoxContainer"]
+[node name="BackToMenu" type="MarginContainer" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 
-[node name="Button" type="Button" parent="MenuSystem/MarginContainer/HBoxContainer/BackToMenu"]
+[node name="Button" type="Button" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu"]
 layout_mode = 2
 text = "Back To Menu"
 script = ExtResource("2_yhi28")
@@ -107,6 +109,6 @@ script = ExtResource("2_yhi28")
 wait_time = 5.0
 autostart = true
 
-[connection signal="button_down" from="MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" to="MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" method="_on_button_down"]
-[connection signal="button_down" from="MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" to="MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" to="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" to="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" method="_on_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

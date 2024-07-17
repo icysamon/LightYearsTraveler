@@ -15,6 +15,7 @@ var target : Vector2 = Vector2.ZERO
 var flag_move : bool = false
 var can_move : bool = true
 var last_target_normalized : Vector2 = Vector2.ZERO
+var planet_array : Array
 
 
 func _ready():
@@ -31,7 +32,7 @@ func _ready():
 		planet.speed_rotation = randf_range(-1.0, 1.0)
 		
 		# random set planet scale
-		var planet_scale = randf_range(1.0, 4.0)
+		var planet_scale = randf_range(1.0, 1.5)
 		planet.scale.x = planet_scale
 		planet.scale.y = planet_scale
 		
@@ -39,19 +40,20 @@ func _ready():
 		planet.position = Vector2(x, y)
 		planet.event = planet.event_array.pick_random()
 		add_child(planet)
+		
 		if planet.get_planet:
 			planet.queue_free()
 		
+		planet_array.append(planet)
 		creation_radius += R_INCREMENT
-	
-	pass
+	print(planet_array)
 	
 
 func _draw():
 	if player.stamina <= 0 and flag_move:
 		draw_line(player.global_position, get_global_mouse_position(), Color.BLUE, 3.0)
 		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	if player.stamina > 0 and flag_move:
 		var target_normalized = (target - player.position).normalized()

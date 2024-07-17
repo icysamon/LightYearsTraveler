@@ -32,7 +32,18 @@ move={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_4="UI"
+
+[physics]
+
+3d/default_gravity=0.0
+2d/default_gravity=0.0
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.0784314, 0.133333, 0.25098, 1)

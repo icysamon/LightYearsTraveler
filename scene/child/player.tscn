@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxpv1vg6rsf8v"]
+[gd_scene load_steps=7 format=3 uid="uid://cxpv1vg6rsf8v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1c44o"]
 [ext_resource type="Texture2D" uid="uid://dc8370ps1bh1" path="res://assets/player/player.png" id="1_e5cpc"]
 [ext_resource type="PackedScene" uid="uid://b405njjdeo60g" path="res://scene/main/ui.tscn" id="3_8hhjv"]
 [ext_resource type="Script" path="res://scripts/area/player_area.gd" id="4_cmvo7"]
+[ext_resource type="Texture2D" uid="uid://blhpauqkrv0eu" path="res://assets/light/2d_lights_and_shadows_neutral_point_light.webp" id="5_860un"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1yhp"]
 size = Vector2(70, 63)
@@ -18,7 +19,12 @@ script = ExtResource("1_1c44o")
 scale = Vector2(0.142857, 0.142857)
 
 [node name="UI" parent="Camera2D" instance=ExtResource("3_8hhjv")]
+light_mask = 8
 custom_minimum_size = Vector2(1152, 648)
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
@@ -30,5 +36,8 @@ metadata/type = "Player"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1.96695e-06, 3.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m1yhp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("5_860un")
+texture_scale = 0.1

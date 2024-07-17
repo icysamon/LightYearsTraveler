@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://66n7t0kwdk12"]
+[gd_scene load_steps=31 format=3 uid="uid://66n7t0kwdk12"]
 
 [ext_resource type="Theme" uid="uid://cc438u041qhka" path="res://resource/theme.tres" id="1_eyu4o"]
 [ext_resource type="Texture2D" uid="uid://csekfupl2hif6" path="res://assets/background/background2.png" id="1_ne1yg"]
@@ -23,6 +23,8 @@
 [ext_resource type="Script" path="res://scripts/music_menu.gd" id="15_v3xuf"]
 [ext_resource type="Script" path="res://scripts/buttons/options.gd" id="17_8kqio"]
 [ext_resource type="PackedScene" uid="uid://bm10m54nrssoi" path="res://scene/child/point_light_star.tscn" id="23_6p0f2"]
+[ext_resource type="Texture2D" uid="uid://b43bgd32aj2o2" path="res://assets/godot_wild_jam/theme.png" id="24_r2f0h"]
+[ext_resource type="Texture2D" uid="uid://bvun5kpw8bxhd" path="res://assets/godot_wild_jam/card.png" id="25_7qhav"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yonf3"]
 font_size = 36
@@ -254,6 +256,22 @@ script = ExtResource("15_v3xuf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fc8r1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 921.0
+offset_top = 477.0
+offset_right = 3621.0
+offset_bottom = 2455.0
+scale = Vector2(0.08, 0.08)
+
+[node name="Theme" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("24_r2f0h")
+
+[node name="Card" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("25_7qhav")
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_button_down"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_mouse_entered"]

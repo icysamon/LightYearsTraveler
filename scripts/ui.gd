@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var STAMINA_STATUS = $StaminaSystem/MarginContainer/HBoxContainer/Label_Status
+@onready var STAMINA_STATUS = $CanvasLayer/StaminaSystem/MarginContainer/HBoxContainer/Label_Status
 @onready var player = owner
 
 

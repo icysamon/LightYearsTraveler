@@ -18,6 +18,9 @@ _data = {
 texture_filter = 1
 script = ExtResource("1_njcqn")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
 [node name="Player" parent="." instance=ExtResource("3_w17ff")]
 
 [node name="Planet" parent="." instance=ExtResource("2_yc56x")]

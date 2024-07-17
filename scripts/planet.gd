@@ -135,7 +135,7 @@ func _on_area_2d_area_entered(area):
 			var tip = TIP.instantiate()
 			tip.event_name = event.name
 			tip.event_description = event.description
-			player.get_node("Camera2D/UI").add_child(tip)
+			player.get_node("Camera2D/UI/CanvasLayer").add_child(tip)
 	
 	# when get planet (error status)	
 	elif area.area_type == "planet":
@@ -213,7 +213,7 @@ func _on_timer_stamina_timeout():
 			event = load("res://resource/event/you_should_leave.tres")
 			tip.event_name = event.name
 			tip.event_description = event.description
-			player.get_node("Camera2D/UI").add_child(tip)
+			player.get_node("Camera2D/UI/CanvasLayer").add_child(tip)
 	pass
 
 
