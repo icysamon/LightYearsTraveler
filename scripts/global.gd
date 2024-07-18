@@ -7,9 +7,9 @@ extends Node2D
 
 const PLANET_QUANTITY = 100
 const DISTANCE_MAX : int = 10000
-const R_INCREMENT : int = 300
+const R_INCREMENT : int = 100
 
-var creation_radius : int = 0 
+var creation_radius : int = 500 
 var target : Vector2 = Vector2.ZERO
 var flag_move : bool = false
 var can_move : bool = true
@@ -31,7 +31,7 @@ func _ready():
 		planet.speed_rotation = randf_range(-1.0, 1.0)
 		
 		# random set planet scale
-		var planet_scale = randf_range(1.0, 1.5)
+		var planet_scale = randf_range(1.0, 1.2)
 		planet.scale.x = planet_scale
 		planet.scale.y = planet_scale
 		

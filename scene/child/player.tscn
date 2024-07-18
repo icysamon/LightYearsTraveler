@@ -17,6 +17,7 @@ script = ExtResource("1_1c44o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.142857, 0.142857)
+zoom = Vector2(0.5, 0.5)
 
 [node name="UI" parent="Camera2D" instance=ExtResource("3_8hhjv")]
 light_mask = 8
@@ -37,4 +38,4 @@ shape = SubResource("RectangleShape2D_m1yhp")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.955813, 0.983223, 1, 1)
 texture = ExtResource("5_860un")
-texture_scale = 0.3
+texture_scale = 0.5
