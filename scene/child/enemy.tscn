@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://clrxcagxkppeo"]
+[gd_scene load_steps=3 format=3 uid="uid://clrxcagxkppeo"]
 
 [ext_resource type="Texture2D" uid="uid://en5px03lq2u4" path="res://assets/enemy/enemy.png" id="1_cixi3"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="2_010hi"]
 
 [node name="Sprite2D" type="Sprite2D"]
 scale = Vector2(3, 3)
 texture = ExtResource("1_cixi3")
+script = ExtResource("2_010hi")

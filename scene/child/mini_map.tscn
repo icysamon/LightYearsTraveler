@@ -1,20 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvgdxutdss8gv"]
-
-[ext_resource type="Texture2D" uid="uid://en5px03lq2u4" path="res://assets/enemy/enemy.png" id="1_nqeg2"]
+[gd_scene format=3 uid="uid://cvgdxutdss8gv"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-custom_minimum_size = Vector2(800, 600)
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.281021, 0.154095, 0.226522, 1)
 
-[node name="Camera2D" type="Camera2D" parent="SubViewportContainer"]
-anchor_mode = 0
-enabled = false
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
-[node name="Enemy" type="Sprite2D" parent="."]
-position = Vector2(273, 271)
-texture = ExtResource("1_nqeg2")
+[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(180, 180)
+size_2d_override = Vector2i(100, 100)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Control/SubViewportContainer/SubViewport"]
