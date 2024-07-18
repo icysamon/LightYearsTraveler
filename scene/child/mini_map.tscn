@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvgdxutdss8gv"]
+
+[ext_resource type="Texture2D" uid="uid://en5px03lq2u4" path="res://assets/enemy/enemy.png" id="1_nqeg2"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer"]
+anchor_mode = 0
+enabled = false
+
+[node name="Enemy" type="Sprite2D" parent="."]
+position = Vector2(273, 271)
+texture = ExtResource("1_nqeg2")

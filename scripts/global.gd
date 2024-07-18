@@ -90,12 +90,13 @@ func _input(event):
 		animation_player.play("click")
 	
 	if event.is_action_pressed("navigation"):
-		_find_planet()
+		#_find_planet()
+		pass
 
 func _find_planet():
 	for i in planet_array.size():
 		var planet_position = planet_array[i].position - player.position
-		if planet_position.length() < 500:
+		if planet_position.length() < 5000 and planet_position.length() > 2000:
 			print(planet_position.normalized())
 			print(planet_navigation.position)
 			planet_navigation.position = get_viewport_rect().size / 2 + planet_position.normalized() * 50

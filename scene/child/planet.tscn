@@ -79,7 +79,7 @@ visible = false
 position = Vector2(0, -68)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_qec6h")
-frame_progress = 0.347378
+frame_progress = 0.652788
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

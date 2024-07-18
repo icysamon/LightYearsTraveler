@@ -212,10 +212,10 @@ func _on_timer_stamina_timeout():
 						player.stamina += 1
 						planet_energy -= 2
 			Type.HELL:
-				player.stamina -= 8
+				player.stamina -= 1
 				
 			Type.BARREN:
-				player.stamina -= 2
+				player.stamina -= 1
 			Type.BLACK_HOLE:
 				player.stamina -= 100
 				

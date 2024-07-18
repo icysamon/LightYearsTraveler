@@ -2,7 +2,7 @@ extends Sprite2D
 
 @onready var GAME_OVER = preload("res://scene/child/game_over.tscn")
 
-var stamina : int = 1
+var stamina : int = 11
 var area_name = "player"
 var speed : int = 120
 

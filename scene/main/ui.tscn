@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b405njjdeo60g"]
+[gd_scene load_steps=6 format=3 uid="uid://b405njjdeo60g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_1jrra"]
-[ext_resource type="Texture2D" uid="uid://cajg1tcsbpvf2" path="res://assets/icon_season/frame.png" id="1_5q6eo"]
 [ext_resource type="Script" path="res://scripts/buttons/back_to_menu.gd" id="2_yhi28"]
 [ext_resource type="Script" path="res://scripts/buttons/restart.gd" id="3_b2uqk"]
 [ext_resource type="Texture2D" uid="uid://df4tbvpnxnivw" path="res://assets/battery/battery8.png" id="3_berfc"]
@@ -18,27 +17,6 @@ script = ExtResource("1_1jrra")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="SeasonSystem" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SeasonSystem"]
-layout_mode = 0
-offset_right = 100.0
-offset_bottom = 100.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-
-[node name="TextureRect_Frame" type="TextureRect" parent="CanvasLayer/SeasonSystem/MarginContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("1_5q6eo")
-
 [node name="StaminaSystem" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -49,11 +27,11 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/StaminaSystem"]
-layout_mode = 0
-offset_left = 127.0
-offset_top = 34.0
-offset_right = 159.0
-offset_bottom = 50.0
+layout_mode = 1
+offset_left = 19.0
+offset_top = 17.0
+offset_right = 51.0
+offset_bottom = 33.0
 scale = Vector2(3, 3)
 
 [node name="Battery" type="TextureRect" parent="CanvasLayer/StaminaSystem/MarginContainer"]
