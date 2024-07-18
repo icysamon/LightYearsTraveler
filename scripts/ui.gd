@@ -1,16 +1,21 @@
 extends Control
 
 
-@onready var STAMINA_STATUS = $CanvasLayer/StaminaSystem/MarginContainer/HBoxContainer/Label_Status
+@onready var battery = $CanvasLayer/StaminaSystem/MarginContainer/Battery
 @onready var player = owner
 
 
 func _ready():
-	STAMINA_STATUS.text = str(player.stamina)
+	battery.texture = battery.status[7]
 
 
 func _process(delta):
-	STAMINA_STATUS.text = str(player.stamina)
+	if player.stamina >= 0 and player.stamina <= 11:
+		battery.texture = battery.status[player.stamina]
+	elif player.stamina < 0:
+		battery.texture = battery.status[0]
+	else:
+		battery.texture = battery.status[11]
 	return delta
 		
 		
