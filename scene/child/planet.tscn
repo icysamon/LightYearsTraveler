@@ -1,16 +1,56 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5lv76xyyp2au"]
+[gd_scene load_steps=17 format=3 uid="uid://b5lv76xyyp2au"]
 
 [ext_resource type="Script" path="res://scripts/planet.gd" id="1_qtws5"]
 [ext_resource type="Texture2D" uid="uid://cw1tqknepharf" path="res://assets/planet/spring.png" id="2_mf7uw"]
 [ext_resource type="Resource" uid="uid://bug7l5esswclg" path="res://resource/event/beautiful_spring.tres" id="2_ufkd7"]
 [ext_resource type="Resource" uid="uid://dk1yx7u7812n8" path="res://resource/event/too_hot.tres" id="3_7epvx"]
 [ext_resource type="Script" path="res://scripts/area/planet_area.gd" id="3_vqtv6"]
+[ext_resource type="Texture2D" uid="uid://blita5qvktvuh" path="res://assets/clock/clock1.png" id="6_ovq37"]
+[ext_resource type="Texture2D" uid="uid://vebkpcaagp2n" path="res://assets/clock/clock2.png" id="7_32wvt"]
+[ext_resource type="Texture2D" uid="uid://cvrryebjhv0cn" path="res://assets/clock/clock3.png" id="8_87tvg"]
+[ext_resource type="Texture2D" uid="uid://dnbj4xhvugywq" path="res://assets/clock/clock4.png" id="9_wpw5t"]
+[ext_resource type="Texture2D" uid="uid://cnl7opvfkhx0k" path="res://assets/clock/clock5.png" id="10_3sde6"]
+[ext_resource type="Texture2D" uid="uid://cc2uufw4wtft1" path="res://assets/clock/clock6.png" id="11_5jnrq"]
+[ext_resource type="Texture2D" uid="uid://bkwx0p4hjuwtn" path="res://assets/clock/clock7.png" id="12_2wl2r"]
+[ext_resource type="Texture2D" uid="uid://pvud4pow8b8y" path="res://assets/clock/clock8.png" id="13_piocj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4js5"]
 size = Vector2(8, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a0wof"]
 polygon = PackedVector2Array(-20, -19, 19, -19, 19, 21, -20, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qec6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ovq37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_32wvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_87tvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wpw5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3sde6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5jnrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2wl2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_piocj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Planet" type="Node2D"]
 z_index = -10
@@ -34,8 +74,20 @@ visible = false
 scale = Vector2(0.1, 0.1)
 occluder = SubResource("OccluderPolygon2D_a0wof")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -68)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_qec6h")
+frame_progress = 0.347378
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+autostart = true
+
+[node name="TimerClock" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 autostart = true
 
 [node name="TimerStamina" type="Timer" parent="."]
@@ -46,4 +98,5 @@ autostart = true
 [connection signal="mouse_entered" from="Sprite2D/Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite2D/Area2D" to="." method="_on_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerClock" to="." method="_on_timer_clock_timeout"]
 [connection signal="timeout" from="TimerStamina" to="." method="_on_timer_stamina_timeout"]

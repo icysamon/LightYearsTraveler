@@ -150,6 +150,12 @@ func _on_area_2d_area_entered(area):
 
 
 func _on_timer_timeout():
+	# clock
+	$AnimatedSprite2D.visible = false
+	if not default_planet:
+		$TimerClock.start()
+		
+	
 	# random change planet type
 	if !default_planet:
 		match planet_type:
@@ -233,3 +239,10 @@ func _on_area_2d_area_exited(area):
 		get_player = false
 		flag_tip = false
 	pass
+
+
+func _on_timer_clock_timeout():
+	if not default_planet:
+		$AnimatedSprite2D.visible = true
+		$AnimatedSprite2D.play()
+	pass # Replace with function body.

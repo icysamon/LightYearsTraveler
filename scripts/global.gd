@@ -8,7 +8,7 @@ extends Node2D
 
 const PLANET_QUANTITY = 100
 const DISTANCE_MAX : int = 10000
-const R_INCREMENT : int = 500
+const R_INCREMENT : int = 300
 
 var creation_radius : int = 0 
 var target : Vector2 = Vector2.ZERO
