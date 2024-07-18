@@ -18,6 +18,10 @@ boot_splash/bg_color=Color(0.0784314, 0.133333, 0.25098, 1)
 boot_splash/image="res://assets/godot_wild_jam/background.png"
 config/icon="res://assets/planet/winter.png"
 
+[autoload]
+
+AudioStreamPlayer2d="*res://scene/child/audio_stream_player_2d.tscn"
+
 [display]
 
 window/stretch/mode="viewport"

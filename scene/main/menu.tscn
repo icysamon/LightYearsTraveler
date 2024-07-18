@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://66n7t0kwdk12"]
+[gd_scene load_steps=29 format=3 uid="uid://66n7t0kwdk12"]
 
 [ext_resource type="Theme" uid="uid://cc438u041qhka" path="res://resource/theme.tres" id="1_eyu4o"]
 [ext_resource type="Texture2D" uid="uid://csekfupl2hif6" path="res://assets/background/background2.png" id="1_ne1yg"]
@@ -19,8 +19,6 @@
 [ext_resource type="Resource" uid="uid://b3i3ugond3yy7" path="res://resource/event/summary/hell.tres" id="12_4phtn"]
 [ext_resource type="AudioStream" uid="uid://cb8udf38rdyb7" path="res://assets/sfx/Lead A Nemesida BS.wav" id="13_nqoi4"]
 [ext_resource type="Resource" uid="uid://bw3xek8b5j8n8" path="res://resource/event/summary/black_hole.tres" id="14_hqn8q"]
-[ext_resource type="AudioStream" uid="uid://7ytigwnde2dq" path="res://assets/music/menu/Mixdown/menu.wav" id="14_qxyax"]
-[ext_resource type="Script" path="res://scripts/music_menu.gd" id="15_v3xuf"]
 [ext_resource type="Script" path="res://scripts/buttons/options.gd" id="17_8kqio"]
 [ext_resource type="PackedScene" uid="uid://bm10m54nrssoi" path="res://scene/child/point_light_star.tscn" id="23_6p0f2"]
 [ext_resource type="Texture2D" uid="uid://b43bgd32aj2o2" path="res://assets/godot_wild_jam/theme.png" id="24_r2f0h"]
@@ -247,12 +245,6 @@ horizontal_alignment = 1
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_nqoi4")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_qxyax")
-autoplay = true
-mix_target = 1
-script = ExtResource("15_v3xuf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fc8r1")

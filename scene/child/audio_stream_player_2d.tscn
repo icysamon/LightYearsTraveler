@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3tv31ss5fnqi"]
+
+[ext_resource type="AudioStream" uid="uid://7ytigwnde2dq" path="res://assets/music/menu/Mixdown/menu.wav" id="1_jdval"]
+[ext_resource type="Script" path="res://scripts/audio_player.gd" id="1_wk0q5"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_jdval")
+autoplay = true
+script = ExtResource("1_wk0q5")
