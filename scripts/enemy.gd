@@ -20,3 +20,9 @@ func _on_timer_timeout():
 	add_child(bullet)
 	print(1)
 
+
+
+func _on_area_2d_area_entered(area):
+	if area.area_type == "bullet_player":
+		queue_free()
+	pass # Replace with function body.

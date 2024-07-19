@@ -14,7 +14,6 @@ func _physics_process(delta):
 	position += dir * speed * delta
 
 func _on_area_2d_area_entered(area):
-	if area.area_type == "player":
+	if area.area_type == "bullet":
 		area.owner.stamina -= 1
-		pass
-	pass # Replace with function body.
+	pass
