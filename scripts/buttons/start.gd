@@ -3,6 +3,7 @@ extends Button
 @onready var sfx = $"../../../../../SFX"
 func _on_button_down():
 	sfx.play()
+	AudioStreamPlayer2d.flag_main_music = true
 	get_tree().change_scene_to_file(PATH)
 
 

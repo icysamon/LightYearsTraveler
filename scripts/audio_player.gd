@@ -1,13 +1,31 @@
 extends AudioStreamPlayer2D
 
-const music = preload("res://assets/music/menu/Mixdown/menu.wav")
+const menu_music = preload("res://assets/music/menu/Mixdown/menu.wav")
+const main_music = preload("res://assets/music/main/Mixdown/main_head.wav")
+const main_music_loop = preload("res://assets/music/main/Mixdown/main_loop.wav")
+
+var flag_main_music: bool = false
+var flag_loop: bool = false
 
 func _process(delta):
-	play_music(music)
-	return delta
-
-func play_music(music: AudioStream):
-	if self.is_playing():
-		pass
+	if !flag_main_music:
+		flag_loop = true
+		if !is_playing():
+			stream = menu_music
+			play()
+		elif stream == main_music:
+			stop()
+			stream = menu_music
+			play()
 	else:
-		self.play()
+		if !is_playing() and !flag_loop:
+			stream = main_music
+			play()
+			flag_loop = true
+		elif stream == menu_music:
+			stop()
+			stream = main_music
+			play()
+		elif !is_playing() and flag_loop:
+			stream = main_music_loop
+			play()

@@ -6,7 +6,8 @@ const SPEED = 40
 var dir = Vector2.ZERO
 
 func _process(delta):
-	dir = (get_tree().get_nodes_in_group("player")[0].position - position).normalized()
+	if get_tree().get_nodes_in_group("player")[0]:
+		dir = (get_tree().get_nodes_in_group("player")[0].position - position).normalized()
 	return delta
 	
 
