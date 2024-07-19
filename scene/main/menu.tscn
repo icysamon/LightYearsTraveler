@@ -245,6 +245,7 @@ horizontal_alignment = 1
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_nqoi4")
+bus = &"SFX"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fc8r1")
@@ -268,5 +269,6 @@ texture = ExtResource("25_7qhav")
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_button_down"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Start/Button" method="_on_mouse_entered"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Options/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Options/Button" method="_on_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Options/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Options/Button" method="_on_mouse_entered"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" method="_on_button_down"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Quit/Button" method="_on_mouse_entered"]
