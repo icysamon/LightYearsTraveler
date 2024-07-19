@@ -79,7 +79,7 @@ func _ready():
 	# set planet season if it is super earth
 	if planet_type == Type.SUPPER_EARTH and !default_planet:
 		$Sprite2D.texture = planet_season_array.pick_random()
-		for i in planet_type_array.size():
+		for i in planet_season_array.size():
 			if $Sprite2D.texture == planet_season_array[i]:
 				planet_season = i
 				break
@@ -142,7 +142,7 @@ func _on_area_2d_area_entered(area):
 			player.get_node("Camera2D/UI/CanvasLayer").add_child(tip)
 	
 	# when get planet (error status)	
-	elif area.area_type == "planet":
+	if area.area_type == "planet":
 		print("planet to planet collision!")
 		get_player = false
 		get_planet = true	
@@ -185,12 +185,16 @@ func _on_timer_timeout():
 		match planet_season:
 			Season.SPRING:
 				$Sprite2D.texture = planet_season_array[Season.SUMMER]
+				planet_season = Season.SUMMER
 			Season.SUMMER:
 				$Sprite2D.texture = planet_season_array[Season.AUTUMN]
+				planet_season = Season.AUTUMN
 			Season.AUTUMN:
 				$Sprite2D.texture = planet_season_array[Season.WINTER]
+				planet_season = Season.WINTER
 			Season.WINTER:
 				$Sprite2D.texture = planet_season_array[Season.SPRING]
+				planet_season = Season.SPRING
 
 
 func _on_timer_stamina_timeout():
@@ -213,7 +217,6 @@ func _on_timer_stamina_timeout():
 						planet_energy -= 2
 			Type.HELL:
 				player.stamina -= 1
-				
 			Type.BARREN:
 				player.stamina -= 1
 			Type.BLACK_HOLE:
