@@ -6,7 +6,7 @@ const speed : int = 60
 
 
 func _ready():
-	dir = (target_position - position).normalized()
+	dir = (target_position - global_position).normalized()
 	pass
 
 

@@ -2,7 +2,7 @@ extends Sprite2D
 
 var last_mouse_position: Vector2
 var dir: Vector2
-const speed: int = 300
+const speed: int = 100
 
 
 func _ready():
