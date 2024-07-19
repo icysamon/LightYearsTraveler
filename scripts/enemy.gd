@@ -1,6 +1,6 @@
 extends Sprite2D
 
-const SPEED = 50
+const SPEED = 40
 @onready var BULLET = preload("res://scene/child/bullet.tscn")
 
 var dir = Vector2.ZERO

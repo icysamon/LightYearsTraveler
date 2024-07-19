@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://btjqepmvg6mm8"]
+[gd_scene load_steps=7 format=3 uid="uid://btjqepmvg6mm8"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_njcqn"]
 [ext_resource type="PackedScene" uid="uid://cxpv1vg6rsf8v" path="res://scene/child/player.tscn" id="3_w17ff"]
 [ext_resource type="Animation" uid="uid://cwarwfb3po1eh" path="res://resource/animation/click.tres" id="5_vkv1w"]
 [ext_resource type="PackedScene" uid="uid://bvy1en3oaaxpo" path="res://scene/child/animation_click.tscn" id="6_ffp2u"]
-[ext_resource type="PackedScene" uid="uid://clrxcagxkppeo" path="res://scene/child/enemy.tscn" id="7_e4qgl"]
 [ext_resource type="Texture2D" uid="uid://d2fva8bch13el" path="res://assets/click/click1.png" id="8_gnuu0"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x414w"]
@@ -34,6 +33,3 @@ offset_right = 40.0
 offset_bottom = 40.0
 pivot_offset = Vector2(-20, -20)
 texture = ExtResource("8_gnuu0")
-
-[node name="Sprite2D" parent="." instance=ExtResource("7_e4qgl")]
-position = Vector2(276, 154)
