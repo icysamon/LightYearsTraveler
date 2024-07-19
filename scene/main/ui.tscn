@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b405njjdeo60g"]
+[gd_scene load_steps=7 format=3 uid="uid://b405njjdeo60g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_1jrra"]
 [ext_resource type="Script" path="res://scripts/buttons/back_to_menu.gd" id="2_yhi28"]
 [ext_resource type="Script" path="res://scripts/buttons/restart.gd" id="3_b2uqk"]
 [ext_resource type="Texture2D" uid="uid://df4tbvpnxnivw" path="res://assets/battery/battery8.png" id="3_berfc"]
 [ext_resource type="Script" path="res://scripts/battery.gd" id="3_fleu1"]
+[ext_resource type="AudioStream" uid="uid://cb8udf38rdyb7" path="res://assets/sfx/Lead A Nemesida BS.wav" id="6_l002c"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -66,25 +67,33 @@ layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 
-[node name="Button" type="Button" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="Button" type="Button" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2" node_paths=PackedStringArray("sfx")]
 layout_mode = 2
 text = "ReStart"
 script = ExtResource("3_b2uqk")
+sfx = NodePath("../../../../../../SFX")
 
 [node name="BackToMenu" type="MarginContainer" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 
-[node name="Button" type="Button" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu"]
+[node name="Button" type="Button" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu" node_paths=PackedStringArray("sfx")]
 layout_mode = 2
 text = "Back To Menu"
 script = ExtResource("2_yhi28")
+sfx = NodePath("../../../../../../SFX")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_l002c")
+bus = &"SFX"
+
 [connection signal="button_down" from="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" to="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" method="_on_button_down"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" to="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2/Button" method="_on_mouse_entered"]
 [connection signal="button_down" from="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" to="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" method="_on_button_down"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" to="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu/Button" method="_on_mouse_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

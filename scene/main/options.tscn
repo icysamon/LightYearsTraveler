@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://depddnwmtj7fq"]
+[gd_scene load_steps=5 format=3 uid="uid://depddnwmtj7fq"]
 
 [ext_resource type="Script" path="res://scripts/buttons/back_to_menu.gd" id="1_u76ou"]
 [ext_resource type="Script" path="res://scripts/options/slider_music.gd" id="1_wog07"]
 [ext_resource type="Script" path="res://scripts/options/slider_sfx.gd" id="2_2k4qc"]
+[ext_resource type="AudioStream" uid="uid://cb8udf38rdyb7" path="res://assets/sfx/Lead A Nemesida BS.wav" id="4_gx6rb"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -67,12 +68,18 @@ script = ExtResource("2_2k4qc")
 layout_mode = 2
 theme_override_constants/margin_top = 50
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer3"]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer3" node_paths=PackedStringArray("sfx")]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Back To Menu"
 script = ExtResource("1_u76ou")
+sfx = NodePath("../../../../../SFX")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gx6rb")
+bus = &"SFX"
 
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HSlider" to="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer2/HSlider" to="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer2/HSlider" method="_on_value_changed"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer3/Button" to="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer3/Button" method="_on_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer3/Button" to="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer3/Button" method="_on_mouse_entered"]
