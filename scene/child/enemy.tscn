@@ -7,3 +7,8 @@
 scale = Vector2(3, 3)
 texture = ExtResource("1_cixi3")
 script = ExtResource("2_010hi")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
