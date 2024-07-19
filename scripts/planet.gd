@@ -171,6 +171,7 @@ func _on_timer_timeout():
 				if _probability(0.3):
 					$Sprite2D.texture = planet_type_array[Type.SUPPER_EARTH]
 					planet_type = Type.SUPPER_EARTH
+					planet_season = Season.SPRING
 				else:
 					$Sprite2D.texture = planet_type_array[Type.BLACK_HOLE]
 					planet_type = Type.BLACK_HOLE
