@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @onready var GAME_OVER = preload("res://scene/child/game_over.tscn")
+@onready var BULLET_PLAYER = preload("res://scene/child/bullet_player.tscn")
 
 var stamina : int = 11
 var area_name = "player"
@@ -24,3 +25,8 @@ func _input(event):
 	if event.is_action_pressed("zoom out"):
 		if $Camera2D.zoom.x > 0.2:
 			$Camera2D.zoom -= 0.2 * Vector2.ONE
+	if event.is_action_pressed("attack"):
+		var bullet_player = BULLET_PLAYER.instantiate()
+		bullet_player.last_mouse_position = get_global_mouse_position()
+		add_child(bullet_player)
+		pass
