@@ -11,3 +11,8 @@ func _ready():
 
 func _physics_process(delta):
 	position += dir * speed * delta
+
+
+func _on_timer_timeout():
+	queue_free()
+	pass # Replace with function body.

@@ -9,7 +9,7 @@ var flag_loop: bool = false
 
 func _process(delta):
 	if !flag_main_music:
-		flag_loop = true
+		flag_loop = false
 		if !is_playing():
 			stream = menu_music
 			play()
@@ -22,9 +22,10 @@ func _process(delta):
 			stream = main_music
 			play()
 			flag_loop = true
-		elif stream == menu_music:
+		elif is_playing() and stream == menu_music:
 			stop()
 			stream = main_music
+			flag_loop = true
 			play()
 		elif !is_playing() and flag_loop:
 			stream = main_music_loop
