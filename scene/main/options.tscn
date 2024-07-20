@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://depddnwmtj7fq"]
+[gd_scene load_steps=6 format=3 uid="uid://depddnwmtj7fq"]
 
 [ext_resource type="Script" path="res://scripts/buttons/back_to_menu.gd" id="1_u76ou"]
 [ext_resource type="Script" path="res://scripts/options/slider_music.gd" id="1_wog07"]
 [ext_resource type="Script" path="res://scripts/options/slider_sfx.gd" id="2_2k4qc"]
+[ext_resource type="PackedScene" uid="uid://deykiooivvput" path="res://scene/child/tutorial.tscn" id="4_apqlv"]
 [ext_resource type="AudioStream" uid="uid://cb8udf38rdyb7" path="res://assets/sfx/Lead A Nemesida BS.wav" id="4_gx6rb"]
 
 [node name="Options" type="Control"]
@@ -13,6 +14,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Tutorial" parent="." instance=ExtResource("4_apqlv")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 432.0
+offset_top = 174.0
+offset_right = 432.0
+offset_bottom = 174.0
+scale = Vector2(3, 3)
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -20,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
@@ -74,6 +87,10 @@ layout_mode = 2
 text = "Back To Menu"
 script = ExtResource("1_u76ou")
 sfx = NodePath("../../../../../SFX")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gx6rb")
