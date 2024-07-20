@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxpv1vg6rsf8v"]
+[gd_scene load_steps=8 format=3 uid="uid://cxpv1vg6rsf8v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1c44o"]
 [ext_resource type="Texture2D" uid="uid://dc8370ps1bh1" path="res://assets/player/player.png" id="1_e5cpc"]
 [ext_resource type="PackedScene" uid="uid://b405njjdeo60g" path="res://scene/main/ui.tscn" id="3_8hhjv"]
 [ext_resource type="Script" path="res://scripts/area/player_area.gd" id="4_cmvo7"]
 [ext_resource type="Texture2D" uid="uid://blhpauqkrv0eu" path="res://assets/light/2d_lights_and_shadows_neutral_point_light.webp" id="5_860un"]
+[ext_resource type="Script" path="res://scripts/player_audio.gd" id="6_xw0tg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1yhp"]
 size = Vector2(70, 63)
@@ -42,5 +43,9 @@ texture_scale = 0.5
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+script = ExtResource("6_xw0tg")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

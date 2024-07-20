@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_nftqm")
 name = "Hell Planet"
-description = "energy -1s"
+description = "energy -1/s"
 stamina = 0
