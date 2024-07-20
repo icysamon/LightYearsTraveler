@@ -3,6 +3,13 @@ extends Node2D
 @onready var TIP = preload("res://scene/child/tip.tscn")
 @onready var SPRITE2D = $Sprite2D
 @onready var GAME_OVER = preload("res://scene/child/game_over.tscn")
+@onready var event_spring = preload("res://resource/event/summary/earth_spring.tres")
+@onready var event_summer = preload("res://resource/event/summary/earth_summer.tres")
+@onready var event_autumn = preload("res://resource/event/summary/earth_autumn.tres")
+@onready var event_winter = preload("res://resource/event/summary/earth_winter.tres")
+@onready var event_hell = preload("res://resource/event/summary/hell.tres")
+@onready var event_black_hole = preload("res://resource/event/summary/black_hole.tres")
+@onready var event_barren = preload("res://resource/event/summary/barren.tres")
 
 @export var texture : Texture
 @export var speed_rotation : float = 0.5
@@ -136,6 +143,25 @@ func _on_area_2d_area_entered(area):
 			
 			# set tip information
 			var tip = TIP.instantiate()
+			match planet_type:
+				Type.SUPPER_EARTH:
+					match planet_season:
+						Season.SPRING:
+							event = event_spring
+						Season.SUMMER:
+							event = event_summer
+						Season.AUTUMN:
+							event = event_autumn
+						Season.WINTER:
+							event = event_winter
+				Type.BARREN:
+					event = event_barren
+
+				Type.HELL:
+					event = event_hell
+				Type.BLACK_HOLE:
+					event = event_black_hole
+
 			tip.event_name = event.name
 			tip.event_description = event.description
 			player.get_node("Camera2D/UI/CanvasLayer").add_child(tip)
@@ -144,7 +170,7 @@ func _on_area_2d_area_entered(area):
 	if area.area_type == "planet":
 		print("planet to planet collision!")
 		get_player = false
-		get_planet = true	
+		get_planet = true
 	pass
 
 
@@ -184,7 +210,7 @@ func _on_timer_timeout():
 					planet_type = Type.HELL
 
 
-	# change supper earth season	
+	# change supper earth season
 	if planet_type == Type.SUPPER_EARTH and !default_planet:
 		match planet_season:
 			Season.SPRING:
@@ -249,6 +275,7 @@ func _on_area_2d_area_exited(area):
 	if area.area_type == "player":
 		get_player = false
 		flag_tip = false
+		flag_first_enter = false
 	pass
 
 

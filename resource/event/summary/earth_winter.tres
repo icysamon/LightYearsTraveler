@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_w0ftv")
 name = "Supper Earth (Winter)"
-description = "energy +0/s"
+description = "energy +1/s"
 stamina = 0

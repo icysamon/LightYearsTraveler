@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Event" load_steps=2 format=3 uid="uid://873yxtlidxrp"]
+
+[ext_resource type="Script" path="res://scripts/ref_counted_event.gd" id="1_j2306"]
+
+[resource]
+script = ExtResource("1_j2306")
+name = "Barren Planet"
+description = "energy -1/s"
+stamina = 0
