@@ -29,3 +29,4 @@ func _process(delta):
 		elif !is_playing() and flag_loop:
 			stream = main_music_loop
 			play()
+	return delta

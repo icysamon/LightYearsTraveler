@@ -6,7 +6,8 @@ const SPEED = 40
 var dir = Vector2.ZERO
 
 func _process(delta):
-	dir = (get_tree().get_nodes_in_group("player")[0].position - position).normalized()
+	if get_tree().root.has_node("Node2D/%Player"):
+		dir = (get_tree().root.get_node("Node2D/%Player").position - position).normalized()
 	return delta
 	
 
@@ -16,9 +17,9 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
 	var bullet = BULLET.instantiate()
-	bullet.target_position = get_tree().get_nodes_in_group("player")[0].position
-	add_child(bullet)
-	print(1)
+	if get_tree().root.has_node("Node2D/%Player"):
+		bullet.target_position = get_tree().root.get_node("Node2D/%Player").position
+		add_child(bullet)
 
 
 

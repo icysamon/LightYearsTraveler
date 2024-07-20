@@ -126,7 +126,6 @@ func _on_area_2d_area_entered(area):
 		player = area.owner # get player parent node
 		get_planet = false
 		get_player = true
-		print(planet_type)
 		
 		if planet_type == Type.BLACK_HOLE:
 			player.stamina -= 100
