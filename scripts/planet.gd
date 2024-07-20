@@ -168,9 +168,10 @@ func _on_area_2d_area_entered(area):
 	
 	# when get planet (error status)	
 	if area.area_type == "planet":
-		print("planet to planet collision!")
+		print("planet to planet collision!")		
 		get_player = false
 		get_planet = true
+		queue_free()
 	pass
 
 
