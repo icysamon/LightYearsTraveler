@@ -41,6 +41,6 @@ func _on_timer_timeout():
 	var random_array: Array[int] = [1, -1]
 	enemy.position = position + Vector2(
 		dir.x * random_array.pick_random(), dir.y * random_array.pick_random())
-	get_tree().root.add_child(enemy)
+	get_tree().root.get_node("Node2D/%Enemy").add_child(enemy)
 	
 	pass # Replace with function body.

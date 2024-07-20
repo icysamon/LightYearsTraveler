@@ -34,3 +34,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 pivot_offset = Vector2(-20, -20)
 texture = ExtResource("8_gnuu0")
+
+[node name="Enemy" type="Node2D" parent="."]
+unique_name_in_owner = true
