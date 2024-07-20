@@ -24,7 +24,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="TimerClean" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 60.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 0.551006, 0.466442, 1)
