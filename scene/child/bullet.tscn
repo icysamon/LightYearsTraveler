@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbp8116waq3sy"]
+[gd_scene load_steps=6 format=3 uid="uid://bbp8116waq3sy"]
 
 [ext_resource type="Texture2D" uid="uid://cehlj00p7qgqu" path="res://assets/enemy/bullet.png" id="1_qaj71"]
 [ext_resource type="Script" path="res://scripts/bullet/bullet.gd" id="2_bnvxm"]
@@ -6,6 +6,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jai08"]
 size = Vector2(8, 8)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k7etq"]
+particle_flag_disable_z = true
+radial_velocity_max = 134.83
+gravity = Vector3(0, 98, 0)
 
 [node name="Bullet" type="Sprite2D"]
 texture_filter = 1
@@ -22,6 +27,12 @@ shape = SubResource("RectangleShape2D_jai08")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_k7etq")
+lifetime = 0.1
+speed_scale = 0.05
+fixed_fps = 15
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
