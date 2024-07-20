@@ -6,7 +6,7 @@ extends Sprite2D
 
 var stamina : int = 11
 var area_name = "player"
-var speed : int = 120
+var speed : int = 150
 
 var flag_game_over : bool = false
 
@@ -37,7 +37,7 @@ func _input(event):
 
 func _on_timer_timeout():
 	var enemy = ENEMY.instantiate()
-	var dir = Vector2.ONE * 500
+	var dir = Vector2.ONE * 700
 	var random_array: Array[int] = [1, -1]
 	enemy.position = position + Vector2(
 		dir.x * random_array.pick_random(), dir.y * random_array.pick_random())

@@ -2,7 +2,7 @@ extends Sprite2D
 
 var target_position : Vector2 = Vector2.ZERO
 var dir : Vector2 = Vector2.ZERO
-const speed : int = 60
+const speed : int = 30
 
 
 func _ready():

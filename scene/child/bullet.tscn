@@ -9,6 +9,7 @@ size = Vector2(8, 8)
 
 [node name="Bullet" type="Sprite2D"]
 texture_filter = 1
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_qaj71")
 script = ExtResource("2_bnvxm")
 

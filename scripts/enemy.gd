@@ -27,3 +27,8 @@ func _on_area_2d_area_entered(area):
 	if area.area_type == "bullet_player":
 		queue_free()
 	pass # Replace with function body.
+
+
+func _on_timer_clean_timeout():
+	queue_free()
+	pass # Replace with function body.
