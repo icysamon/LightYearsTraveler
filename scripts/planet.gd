@@ -159,15 +159,19 @@ func _on_timer_timeout():
 	if !default_planet:
 		match planet_type:
 			Type.SUPPER_EARTH:
-				if _probability(0.3):
+				if _probability(0.33):
 					$Sprite2D.texture = planet_type_array[Type.HELL]
 					planet_type = Type.HELL
 			Type.BARREN:
-				if _probability(0.3):
+				if _probability(0.5):
 					$Sprite2D.texture = planet_type_array[Type.HELL]
 					planet_type = Type.HELL
+				else:
+					$Sprite2D.texture = planet_type_array[Type.SUPPER_EARTH]
+					planet_type = Type.SUPPER_EARTH
+					planet_season = Season.SPRING
 			Type.HELL:
-				if _probability(0.3):
+				if _probability(0.7):
 					$Sprite2D.texture = planet_type_array[Type.SUPPER_EARTH]
 					planet_type = Type.SUPPER_EARTH
 					planet_season = Season.SPRING
@@ -175,7 +179,7 @@ func _on_timer_timeout():
 					$Sprite2D.texture = planet_type_array[Type.BLACK_HOLE]
 					planet_type = Type.BLACK_HOLE
 			Type.BLACK_HOLE:
-				if _probability(0.3):
+				if _probability(0.6):
 					$Sprite2D.texture = planet_type_array[Type.HELL]
 					planet_type = Type.HELL
 
