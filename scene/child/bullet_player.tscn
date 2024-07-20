@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://3o4cmwcfqyyi"]
+[gd_scene load_steps=7 format=3 uid="uid://3o4cmwcfqyyi"]
 
 [ext_resource type="Texture2D" uid="uid://ctntuexqet78w" path="res://assets/enemy/bullet_player.png" id="1_7lr8l"]
 [ext_resource type="Script" path="res://scripts/bullet/bullet_player.gd" id="2_44a5p"]
 [ext_resource type="Script" path="res://scripts/bullet/bullet_player_area.gd" id="3_3cbog"]
+[ext_resource type="Texture2D" uid="uid://by5h4hsb3q5cd" path="res://assets/enemy/particle.png" id="4_ow7g3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1e0r"]
 size = Vector2(8, 8)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uojvb"]
+particle_flag_disable_z = true
+radial_velocity_max = 130.0
+gravity = Vector3(0, 98, 0)
 
 [node name="Sprite2D" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)
@@ -21,5 +27,11 @@ shape = SubResource("RectangleShape2D_y1e0r")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_uojvb")
+texture = ExtResource("4_ow7g3")
+lifetime = 0.1
+speed_scale = 0.05
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

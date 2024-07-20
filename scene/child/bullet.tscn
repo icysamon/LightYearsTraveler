@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbp8116waq3sy"]
+[gd_scene load_steps=7 format=3 uid="uid://bbp8116waq3sy"]
 
 [ext_resource type="Texture2D" uid="uid://cehlj00p7qgqu" path="res://assets/enemy/bullet.png" id="1_qaj71"]
 [ext_resource type="Script" path="res://scripts/bullet/bullet.gd" id="2_bnvxm"]
 [ext_resource type="Script" path="res://scripts/bullet/bullet_area.gd" id="3_7k2a4"]
+[ext_resource type="Texture2D" uid="uid://by5h4hsb3q5cd" path="res://assets/enemy/particle.png" id="4_phjfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jai08"]
 size = Vector2(8, 8)
@@ -30,6 +31,7 @@ autostart = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 process_material = SubResource("ParticleProcessMaterial_k7etq")
+texture = ExtResource("4_phjfi")
 lifetime = 0.1
 speed_scale = 0.05
 fixed_fps = 15
