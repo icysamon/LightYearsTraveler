@@ -208,17 +208,21 @@ func _on_timer_stamina_timeout():
 			Type.SUPPER_EARTH:
 				match planet_season:
 					Season.SPRING:
-						player.stamina += 3
-						planet_energy -= 3
+						if player.stamina < 11:
+							player.stamina += 3
+							planet_energy -= 3
 					Season.SUMMER:
-						player.stamina += 2
-						planet_energy -= 2
+						if player.stamina < 11:
+							player.stamina += 2
+							planet_energy -= 2
 					Season.AUTUMN:
-						player.stamina += 1
-						planet_energy -= 1
+						if player.stamina < 11:
+							player.stamina += 1
+							planet_energy -= 1
 					Season.WINTER:
-						player.stamina += 1
-						planet_energy -= 2
+						if player.stamina < 11:
+							player.stamina += 1
+							planet_energy -= 2
 			Type.HELL:
 				player.stamina -= 1
 			Type.BARREN:

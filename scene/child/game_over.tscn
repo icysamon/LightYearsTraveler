@@ -24,10 +24,11 @@ grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 100
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_vvhpq")
 horizontal_alignment = 1

@@ -85,7 +85,7 @@ script = ExtResource("2_yhi28")
 sfx = NodePath("../../../../../../SFX")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 15.0
 autostart = true
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
