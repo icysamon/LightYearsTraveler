@@ -10,6 +10,7 @@ itch: https://icysamon.itch.io/light-years-traveler
 - **attack** - right mouse
 - **zoom in** - scroll up
 - **zoom out** - scroll down
+
 Rest at the seasons planet to recharge your batteries.
 
 ## Creator
