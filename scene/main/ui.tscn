@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b405njjdeo60g"]
+[gd_scene load_steps=8 format=3 uid="uid://b405njjdeo60g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_1jrra"]
 [ext_resource type="Script" path="res://scripts/buttons/back_to_menu.gd" id="2_yhi28"]
 [ext_resource type="Script" path="res://scripts/buttons/restart.gd" id="3_b2uqk"]
 [ext_resource type="Texture2D" uid="uid://df4tbvpnxnivw" path="res://assets/battery/battery8.png" id="3_berfc"]
 [ext_resource type="Script" path="res://scripts/battery.gd" id="3_fleu1"]
+[ext_resource type="Theme" uid="uid://bofx6ky7d0b4a" path="res://resource/theme_normal.tres" id="4_0jobr"]
 [ext_resource type="AudioStream" uid="uid://cb8udf38rdyb7" path="res://assets/sfx/Lead A Nemesida BS.wav" id="6_l002c"]
 
 [node name="UI" type="Control"]
@@ -69,7 +70,8 @@ theme_override_constants/margin_right = 10
 
 [node name="Button" type="Button" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/MarginContainer2" node_paths=PackedStringArray("sfx")]
 layout_mode = 2
-text = "ReStart"
+theme = ExtResource("4_0jobr")
+text = " ReStart "
 script = ExtResource("3_b2uqk")
 sfx = NodePath("../../../../../../SFX")
 
@@ -80,7 +82,8 @@ theme_override_constants/margin_right = 10
 
 [node name="Button" type="Button" parent="CanvasLayer/MenuSystem/MarginContainer/HBoxContainer/BackToMenu" node_paths=PackedStringArray("sfx")]
 layout_mode = 2
-text = "Back To Menu"
+theme = ExtResource("4_0jobr")
+text = " Back To Menu "
 script = ExtResource("2_yhi28")
 sfx = NodePath("../../../../../../SFX")
 
