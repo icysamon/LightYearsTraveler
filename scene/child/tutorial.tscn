@@ -50,3 +50,15 @@ offset_top = 30.0
 offset_right = 193.0
 offset_bottom = 53.0
 text = "zoom out"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 60.0
+offset_right = 206.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0.483683, 0.800704, 0.629185, 1)
+theme_override_colors/font_shadow_color = Color(0.381703, 0.381703, 0.381703, 1)
+theme_override_colors/font_outline_color = Color(0.868985, 0.868985, 0.868985, 1)
+text = "Rest at the Seasons Planet to recharge your batteries"
+autowrap_mode = 1

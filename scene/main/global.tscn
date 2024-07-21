@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://btjqepmvg6mm8"]
+[gd_scene load_steps=10 format=3 uid="uid://btjqepmvg6mm8"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_njcqn"]
+[ext_resource type="Shader" path="res://shader/global.gdshader" id="2_7tki7"]
 [ext_resource type="PackedScene" uid="uid://cxpv1vg6rsf8v" path="res://scene/child/player.tscn" id="3_w17ff"]
 [ext_resource type="Animation" uid="uid://cwarwfb3po1eh" path="res://resource/animation/click.tres" id="5_vkv1w"]
 [ext_resource type="PackedScene" uid="uid://bvy1en3oaaxpo" path="res://scene/child/animation_click.tscn" id="6_ffp2u"]
 [ext_resource type="Texture2D" uid="uid://d2fva8bch13el" path="res://assets/click/click1.png" id="8_gnuu0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qu8ji"]
+shader = ExtResource("2_7tki7")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mtyix"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x414w"]
 _data = {
@@ -14,6 +20,18 @@ _data = {
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_njcqn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_qu8ji")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_mtyix")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b405njjdeo60g"]
+[gd_scene load_steps=9 format=3 uid="uid://b405njjdeo60g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_1jrra"]
 [ext_resource type="Script" path="res://scripts/buttons/back_to_menu.gd" id="2_yhi28"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/battery.gd" id="3_fleu1"]
 [ext_resource type="Theme" uid="uid://bofx6ky7d0b4a" path="res://resource/theme_normal.tres" id="4_0jobr"]
 [ext_resource type="AudioStream" uid="uid://cb8udf38rdyb7" path="res://assets/sfx/Lead A Nemesida BS.wav" id="6_l002c"]
+[ext_resource type="PackedScene" uid="uid://deykiooivvput" path="res://scene/child/tutorial.tscn" id="7_smrqo"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -86,6 +87,13 @@ theme = ExtResource("4_0jobr")
 text = " Back To Menu "
 script = ExtResource("2_yhi28")
 sfx = NodePath("../../../../../../SFX")
+
+[node name="Tutorial" parent="CanvasLayer" instance=ExtResource("7_smrqo")]
+offset_left = 11.0
+offset_top = 75.0
+offset_right = 11.0
+offset_bottom = 75.0
+mouse_filter = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

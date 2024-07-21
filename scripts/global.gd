@@ -9,7 +9,7 @@ const PLANET_QUANTITY = 100
 const DISTANCE_MAX : int = 10000
 const R_INCREMENT : int = 100
 
-var creation_radius : int = 500 
+var creation_radius : int = 300 
 var target : Vector2 = Vector2.ZERO
 var flag_move : bool = false
 var can_move : bool = true
@@ -20,7 +20,7 @@ var planet_array : Array
 func _ready():
 	# randomly generated planets
 	for i in PLANET_QUANTITY:
-		var planet = PLANET.instantiate()	
+		var planet = PLANET.instantiate()
 		var dir = randi_range(creation_radius, creation_radius + R_INCREMENT) # creation radius
 		var deg = randf_range(0, 2 * PI) # creation degree
 		var x = cos(deg) * dir

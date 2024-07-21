@@ -10,13 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Light Year Traveler"
-config/version="0.1"
+config/name="Light Years Traveler"
+config/description="The game for the 71st Godot Wild Jam."
+config/version="1.0.0.0"
 run/main_scene="res://scene/main/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.0784314, 0.133333, 0.25098, 1)
 boot_splash/image="res://assets/godot_wild_jam/background.png"
-config/icon="res://assets/planet/winter.png"
+config/icon="res://assets/icon/icon.png"
+config/windows_native_icon="res://assets/icon/icon.ico"
 
 [autoload]
 
@@ -26,7 +28,7 @@ AudioStreamPlayer2d="*res://scene/child/audio_stream_player_2d.tscn"
 
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
-mouse_cursor/custom_image="res://assets/click/click1.png"
+mouse_cursor/custom_image="res://assets/click/click.png"
 
 [input]
 
@@ -70,4 +72,5 @@ attack={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.0784314, 0.133333, 0.25098, 1)
