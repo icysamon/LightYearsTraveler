@@ -1,27 +1,25 @@
 # Light Years Traveler
-このゲームは第71回 Godot Wild Jam の参加作品です。
-
+Godot Wild Jam #71 game.  
 itch: https://icysamon.itch.io/light-years-traveler  
 
 ![](.//doc/readme.png)
 
-## チュートリアル
-- **移動：** 左クリック
-- **攻撃：** 右クリック
-- **ズームイン：** スクロールアップ
-- **ズームアウト：** スクロールダウン
+## Tutorial
+- **move** - left mouse
+- **attack** - right mouse
+- **zoom in** - scroll up
+- **zoom out** - scroll down
+Rest at the seasons planet to recharge your batteries.
 
-季節がある惑星で休んでエネルギーを充電しましょう。
+## Creator
+- **game design** - icysamon
+- **art** - icysamon
+- **programming** - icysamon
+- **music** - icysamon
+- **sfx** - icysamon
 
-## 開発情報
-- **プロデューサー：** icysamon
-- **アーティスト：** icysamon
-- **プログラマー：** icysamon
-- **ミュージック：** icysamon
-- **サウンドデザイン：** icysamon
-
-## Godot バージョン
+## Godot Version
 4.2.2
 
-## ライセンス
+## LICENSE
 GPL-3.0 license
