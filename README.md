@@ -18,11 +18,11 @@ Rest at the seasons planet to recharge your batteries.
 ## Creators
 | Roles | Credits |
 | :--- | :--- |
-| Game Design | icysamon |
-| Art | icysamon |
-| Programming | icysamon |
-| Music | icysamon |
-| SFX | icysamon |
+| Game Design | `icysamon` |
+| Art | `icysamon` |
+| Programming | `icysamon` |
+| Music | `icysamon` |
+| Sound | `icysamon` |
 
 ## Game Engine
 This game is build with Godot Engine 4.2.2.
