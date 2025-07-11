@@ -12,14 +12,17 @@ This is a game for [Godot Wild Jam #71
 
 Rest at the seasons planet to recharge your batteries.
 
+## Languages
+- English
+
 ## Creators
 | Roles | Credits |
 | :--- | :--- |
-| game design | icysamon |
-| art | icysamon |
-| programming | icysamon |
-| music | icysamon |
-| sfx | icysamon |
+| Game Design | icysamon |
+| Art | icysamon |
+| Programming | icysamon |
+| Music | icysamon |
+| SFX | icysamon |
 
 ## Game Engine
 This game is build with Godot Engine 4.2.2.
